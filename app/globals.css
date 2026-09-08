@@ -74,8 +74,15 @@ textarea:focus-visible {
   color: #b7c5d8;
   display: flex;
   flex-direction: column;
+  /* 100vh di banyak browser mobile dihitung termasuk area yang ketutup
+     address bar, jadi sidebar-footer (logout) bisa ke-dorong keluar layar
+     dan gak keliatan. 100dvh ikut tinggi viewport yang benar-benar tampil.
+     overflow-y: auto di sini jadi jaring pengaman tambahan supaya sidebar
+     itu sendiri tetap bisa di-scroll kalau isinya lebih tinggi dari layar. */
   height: 100vh;
+  height: 100dvh;
   left: 0;
+  overflow-y: auto;
   padding: 22px 14px 16px;
   position: fixed;
   top: 0;
@@ -1455,7 +1462,11 @@ html { background: var(--canvas); }
     var(--navy-950);
   border-right: 1px solid rgba(255, 154, 90, .12);
   isolation: isolate;
-  overflow: hidden;
+  /* overflow: hidden sebelumnya bikin sidebar-footer (logout) gak bisa
+     dijangkau lewat scroll di HP. overflow-x tetap hidden supaya efek
+     glow dekoratif tidak bleed ke luar, tapi overflow-y dibuka. */
+  overflow-x: hidden;
+  overflow-y: auto;
   padding-top: 24px;
 }
 
