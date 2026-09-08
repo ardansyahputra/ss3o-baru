@@ -56,8 +56,10 @@ export default function LoginPage() {
         setError(response.error === "CredentialsSignin" ? "Email atau password salah." : response.error);
         return;
       }
+      // router.refresh() dihapus: push ke route baru sudah otomatis fetch
+      // data server fresh untuk /dashboard, jadi refresh() di sini cuma
+      // bikin double-fetch dan bikin transisi login terasa lebih lambat.
       router.push("/dashboard?welcome=1");
-      router.refresh();
     } catch {
       setError("Terjadi gangguan saat masuk. Coba lagi.");
     } finally {

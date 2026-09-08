@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
 import Icon from "@/components/Icons";
@@ -35,6 +35,17 @@ const sidebarEmbers = [
 
 export default function AppShell({ children, user, title, welcome = false }) {
   const pathname = usePathname();
+  const router = useRouter();
+
+  // redirect:false supaya logout selalu navigasi di tab yang sedang dibuka
+  // (client-side), tidak lewat redirect server NextAuth yang bisa nyasar
+  // ke NEXTAUTH_URL yang salah di environment production.
+  async function handleLogout() {
+    await signOut({ redirect: false, callbackUrl: "/login" });
+    // router.refresh() dihapus: sama seperti di login, push ke /login sudah
+    // cukup — refresh() tambahan cuma bikin double-fetch dan logout kerasa lambat.
+    router.push("/login");
+  }
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const isAdmin = user?.role === "ADMIN";
@@ -85,7 +96,7 @@ export default function AppShell({ children, user, title, welcome = false }) {
             <span className="avatar">{initials(user?.name)}</span>
             <div className="sidebar-user-copy"><strong>{user?.name}</strong><span>{user?.role === "ADMIN" ? "Administrator" : "Staff"} · {user?.departmentName || "SS3O"}</span><small><i /> Sesi aktif · 8 jam</small></div>
           </div>
-          <button className="sidebar-logout" onClick={() => signOut({ callbackUrl: "https://ss3o-baru.vercel.app/login" })}><Icon name="logout" size={15} /><span>Logout session</span></button>
+          <button className="sidebar-logout" onClick={handleLogout}><Icon name="logout" size={15} /><span>Logout session</span></button>
         </div>
       </aside>
       <button aria-label="Tutup menu" className="sidebar-backdrop" onClick={() => setOpen(false)} type="button" />
@@ -105,7 +116,7 @@ export default function AppShell({ children, user, title, welcome = false }) {
                 <span className="topbar-profile-copy"><strong>{user?.name}</strong><span>{user?.role === "ADMIN" ? "Admin" : "Staff"}</span></span>
                 <Icon name="chevron" size={14} />
               </button>
-              {profileOpen && <span className="profile-menu"><Link href="/profile" onClick={() => setProfileOpen(false)}><Icon name="user" size={14} /> Profile</Link><button onClick={() => signOut({ callbackUrl: "/login" })}><Icon name="logout" size={14} /> Logout session</button></span>}
+              {profileOpen && <span className="profile-menu"><Link href="/profile" onClick={() => setProfileOpen(false)}><Icon name="user" size={14} /> Profile</Link><button onClick={handleLogout}><Icon name="logout" size={14} /> Logout session</button></span>}
             </div>
           </div>
         </header>
