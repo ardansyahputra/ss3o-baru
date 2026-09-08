@@ -85,7 +85,7 @@ export default function AppShell({ children, user, title, welcome = false }) {
             <span className="avatar">{initials(user?.name)}</span>
             <div className="sidebar-user-copy"><strong>{user?.name}</strong><span>{user?.role === "ADMIN" ? "Administrator" : "Staff"} · {user?.departmentName || "SS3O"}</span><small><i /> Sesi aktif · 8 jam</small></div>
           </div>
-          <button className="sidebar-logout" onClick={() => signOut({ callbackUrl: "/login?callbackUrl=%2Freports" })}><Icon name="logout" size={15} /><span>Logout session</span></button>
+          <button className="sidebar-logout" onClick={() => signOut({ callbackUrl: "https://ss3o-baru.vercel.app/login" })}><Icon name="logout" size={15} /><span>Logout session</span></button>
         </div>
       </aside>
       <button aria-label="Tutup menu" className="sidebar-backdrop" onClick={() => setOpen(false)} type="button" />
