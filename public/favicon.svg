@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gelap Pekat -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a0505"/>
+      <stop offset="70%" stop-color="#0d0202"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Gradient Api & Karakter Spartan (Red/Orange/Gold) -->
+    <linearGradient id="fireGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff066"/>
+      <stop offset="35%" stop-color="#ff7700"/>
+      <stop offset="75%" stop-color="#ff0000"/>
+      <stop offset="100%" stop-color="#800000"/>
+    </linearGradient>
+
+    <!-- Gradient Teks SS3O WANI -->
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffe600"/>
+      <stop offset="50%" stop-color="#ffaa00"/>
+      <stop offset="100%" stop-color="#ff3300"/>
+    </linearGradient>
+
+    <!-- Glow Filter Menyala Kuat -->
+    <filter id="intenseGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur1" />
+      <feGaussianBlur stdDeviation="14" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)"/>
+  
+  <!-- Ring Lingkaran Api Luar (Perbesar & Glow) -->
+  <circle cx="256" cy="220" r="185" fill="none" stroke="url(#fireGrad)" stroke-width="14" filter="url(#intenseGlow)"/>
+  <circle cx="256" cy="220" r="165" fill="none" stroke="#ff3300" stroke-width="4" opacity="0.6"/>
+
+  <!-- KARAKTER SPARTAN & API (Vektor Terinspirasi Gambar Logo) -->
+  <g filter="url(#intenseGlow)">
+    <!-- Rambut Api Spartan (Crest Flame) -->
+    <path d="M 256 35 C 280 60, 310 75, 335 110 C 310 115, 290 100, 275 125 C 295 130, 305 145, 295 165 C 270 140, 260 140, 256 160 C 252 140, 242 140, 217 165 C 207 145, 217 130, 237 125 C 222 100, 202 115, 177 110 C 202 75, 232 60, 256 35 Z" fill="url(#fireGrad)"/>
+    
+    <!-- Helm Spartan / Topeng Baju Zirah -->
+    <path d="M 205 155 L 307 155 L 317 210 L 297 255 L 256 280 L 215 255 L 195 210 Z" fill="#111" stroke="url(#fireGrad)" stroke-width="8"/>
+    <!-- Mata Menyala -->
+    <polygon points="220,185 245,195 220,200" fill="#fff" filter="url(#intenseGlow)"/>
+    <polygon points="292,185 267,195 292,200" fill="#fff" filter="url(#intenseGlow)"/>
+    <!-- Garis Vent Tipe Spartan -->
+    <line x1="256" y1="205" x2="256" y2="270" stroke="url(#fireGrad)" stroke-width="6"/>
+
+    <!-- Tameng Emas / Shield (Sebelah Kanan) -->
+    <circle cx="325" cy="235" r="55" fill="#222" stroke="url(#fireGrad)" stroke-width="10"/>
+    <circle cx="325" cy="235" r="35" fill="none" stroke="#ffe600" stroke-width="4"/>
+    
+    <!-- Tangan/Api Kiri -->
+    <path d="M 165 210 Q 145 235 170 265 Q 190 240 165 210 Z" fill="url(#fireGrad)"/>
+  </g>
+
+  <!-- BANNER TEXT CONTAINER (Lebih Besar & Garang) -->
+  <g transform="translate(0, 15)">
+    <!-- Pita Banner Merah Gelap -->
+    <path d="M 40 375 L 100 360 L 412 360 L 472 375 L 452 445 L 60 445 Z" fill="#800000" stroke="url(#goldText)" stroke-width="5" filter="url(#intenseGlow)"/>
+    <path d="M 50 368 L 462 368 L 447 437 L 65 437 Z" fill="#1a0000"/>
+
+    <!-- Teks "SS3O" Top Row -->
+    <text x="50%" y="402" 
+          font-family="Impact, 'Arial Black', sans-serif" 
+          font-size="44" 
+          fill="url(#goldText)" 
+          text-anchor="middle" 
+          letter-spacing="4"
+          filter="url(#intenseGlow)">
+      SS3O
+    </text>
+
+    <!-- Teks "WANI !!" Bottom Row -->
+    <text x="50%" y="433" 
+          font-family="Impact, 'Arial Black', sans-serif" 
+          font-size="30" 
+          fill="#ffffff" 
+          text-anchor="middle" 
+          letter-spacing="6"
+          filter="url(#intenseGlow)">
+      HAJAR WANI !!
+    </text>
+  </g>
+</svg>

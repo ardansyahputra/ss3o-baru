@@ -1,0 +1,810 @@
+[
+  {
+    "id": "881f58aa-d9f8-4c16-9be6-8f6200bc75b6",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "0602d0ea-d6cc-43dd-ad3a-a1bfbbf27dae",
+    "description": "Akurasi Receiving: Tidak ada selisih.",
+    "target": null
+  },
+  {
+    "id": "df0f1233-aad7-4cce-aa70-a5d2d365d92b",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "9369ae32-7d11-4f6b-b55f-12ad29fa994c",
+    "description": "Kerapihan Gudang: Hasil audit gudang bernilai bagus.",
+    "target": null
+  },
+  {
+    "id": "71ad0787-da54-4491-8a2b-399e9c802a61",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "a18f6d70-337f-4c53-b435-f941c96243de",
+    "description": "Shrinkage: Barang hilang seminim mungkin.",
+    "target": null
+  },
+  {
+    "id": "af1f273c-b960-41e8-810a-b77e8e0321c5",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "a44ae611-c9a1-4daa-b80a-7bf82351c8f0",
+    "description": "Akurasi Receiving: Tidak ada selisih.",
+    "target": null
+  },
+  {
+    "id": "902a02f1-53ad-4902-b35f-c710075c8623",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "d12b263a-a19c-4975-9245-dabda7d377b2",
+    "description": "Kerapihan Gudang: Hasil audit gudang bernilai bagus.",
+    "target": null
+  },
+  {
+    "id": "99849cfe-7b03-4e0f-8111-d51224d8115c",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "aeb6430f-832c-47cf-a248-2064396b12f2",
+    "description": "Shrinkage: Barang hilang seminim mungkin.",
+    "target": null
+  },
+  {
+    "id": "e0f7416d-57cc-43cb-afc1-df06d34a6baa",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "8498238f-ad4f-429c-a28f-1f2d729d0d95",
+    "description": "Akurasi Receiving: Tidak ada selisih.",
+    "target": null
+  },
+  {
+    "id": "42bfa445-4972-4392-915f-7e00f602f40c",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "f62bed51-2896-412e-8a4e-952fcd0e41dc",
+    "description": "Kerapihan Gudang: Hasil audit gudang bernilai bagus.",
+    "target": null
+  },
+  {
+    "id": "9d24fd5d-f257-44fc-9949-f968a3cfc4db",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "bb006f06-3db7-419e-8f4b-1ff0349cfbc9",
+    "description": "Shrinkage: Barang hilang seminim mungkin.",
+    "target": null
+  },
+  {
+    "id": "22185bf5-ef84-45ca-8d27-1cb104afef69",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "fc76ace0-15b5-48a7-a8ce-714a69ad6342",
+    "description": "Akurasi Receiving: Tidak ada selisih.",
+    "target": null
+  },
+  {
+    "id": "5906b102-289c-44be-acd5-bb869d52ddc0",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "204680f7-f3bc-427d-83e9-6c032b0303e5",
+    "description": "Kerapihan Gudang: Hasil audit gudang bernilai bagus.",
+    "target": null
+  },
+  {
+    "id": "fb4a677d-a640-4027-a3e5-00b639e84b4a",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "fe8f4a4e-ad9f-477c-b96d-25120b221e2e",
+    "description": "Shrinkage: Barang hilang seminim mungkin.",
+    "target": null
+  },
+  {
+    "id": "e580b4d4-52dc-49a9-ba3f-dce3c9f072df",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "aa33ad83-20a6-472c-8c6a-9b9fee0a88f7",
+    "description": "Tidak ada informasi dari Head Office (HO) yang terlewat.",
+    "target": null
+  },
+  {
+    "id": "c4f398d3-b766-416a-b121-f4e5a98e4234",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "524f2430-5ea9-4505-8547-6d335f96a68e",
+    "description": "Barang datang tidak ada yang tertunda (kepending) pada GR dan POD.",
+    "target": null
+  },
+  {
+    "id": "fcdcfe23-43c2-458b-8ce8-16c5a7d8e655",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "b50b2b5f-41c1-4b09-9301-8f8b59e93711",
+    "description": "File rapi dan mudah dicari.",
+    "target": null
+  },
+  {
+    "id": "2836140c-2426-4b88-a6ee-ccda98e1c304",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "229f2bfa-3750-4739-9292-76d4d08a3555",
+    "description": "Akurasi Database (DB) dan Sales Floor (SF) tinggi.",
+    "target": null
+  },
+  {
+    "id": "13f6ef51-11d4-44ac-8b1c-d5680a517e70",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "b4c40700-5098-45ef-90d3-b5900309f34f",
+    "description": "Laporan tepat waktu (Report Ontime).",
+    "target": null
+  },
+  {
+    "id": "ed843a5b-7243-4a3d-b9c6-de0f529d4b5c",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "26f96862-7008-48d3-a970-bf07c49ca983",
+    "description": "Kontribusi CNB 10%; O2O 1% untuk nillpick.",
+    "target": null
+  },
+  {
+    "id": "ecfacde6-77e8-47ca-b74c-0a086f45093d",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "68391bae-b47b-45f3-bb36-00c3c106cf00",
+    "description": "Stok packing selalu tersedia.",
+    "target": null
+  },
+  {
+    "id": "e6002783-02cc-462a-b12b-3b0ae807905c",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "7b453694-be62-49b1-8932-ffa3230c199b",
+    "description": "Pengiriman CNB tidak ada yang tertunda.",
+    "target": null
+  },
+  {
+    "id": "06cc5a34-b102-4558-bc54-ee6b2ea73ad6",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "53ba599e-f619-40d5-b4af-aee7ab473b44",
+    "description": "Kontribusi CNB 10%; O2O 1% untuk nillpick.",
+    "target": null
+  },
+  {
+    "id": "314abc7d-29c2-45f0-aa10-b4ccc8a01038",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "1de92f94-0042-41da-84e4-9a232bad086f",
+    "description": "Stok packing selalu tersedia.",
+    "target": null
+  },
+  {
+    "id": "4184c526-2e4d-4775-82ba-6ae2be3ec38e",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "ae30fbef-2d82-412a-b147-36d5bad3752e",
+    "description": "Pengiriman CNB tidak ada yang tertunda.",
+    "target": null
+  },
+  {
+    "id": "13ea80dc-b7e8-4510-a443-df3ce709f0cf",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "dd5d7a95-847c-4983-bd79-cf3beb63ba3a",
+    "description": "No lost barang tanpa pembayaran.",
+    "target": null
+  },
+  {
+    "id": "2122a351-e03a-406a-952d-c95b959ef493",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "dd5d7a95-847c-4983-bd79-cf3beb63ba3a",
+    "description": "Tidak ada harga nol yang terjual.",
+    "target": null
+  },
+  {
+    "id": "f1066bef-e36f-449a-8df2-b1da134d62d0",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "dd5d7a95-847c-4983-bd79-cf3beb63ba3a",
+    "description": "Area kasir rapi dan bersih.",
+    "target": null
+  },
+  {
+    "id": "8ca48a9b-50bc-4d65-87a4-b65ea476f461",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "dd5d7a95-847c-4983-bd79-cf3beb63ba3a",
+    "description": "Tidak ada exchange karena kesalahan barang (tertukar).",
+    "target": null
+  },
+  {
+    "id": "8e169c65-0547-4d6c-b7d0-3790ee588952",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "b6023eed-5a50-42e7-8b5a-fa9ea7b466b0",
+    "description": "Laporan dan setoran tepat waktu (on time).",
+    "target": null
+  },
+  {
+    "id": "d22627d6-93fd-4044-beeb-254d60ced81a",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "f7068a84-36da-42af-9955-60d9b8d68886",
+    "description": "No lost barang tanpa pembayaran.",
+    "target": null
+  },
+  {
+    "id": "ba6eb785-a2ef-4c2c-86dc-8cbf7a08ebcc",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "f7068a84-36da-42af-9955-60d9b8d68886",
+    "description": "Tidak ada harga nol yang terjual.",
+    "target": null
+  },
+  {
+    "id": "4daab6aa-9313-4d8a-bcea-280ff59f5d0b",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "f7068a84-36da-42af-9955-60d9b8d68886",
+    "description": "Area kasir rapi dan bersih.",
+    "target": null
+  },
+  {
+    "id": "d614c617-1d24-4965-91ab-9a4daa72b168",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "f7068a84-36da-42af-9955-60d9b8d68886",
+    "description": "Tidak ada exchange karena kesalahan barang (tertukar).",
+    "target": null
+  },
+  {
+    "id": "b3076ba6-3579-4395-bc81-03547c54429b",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "34679867-c469-4055-8fec-8fdf07bb917f",
+    "description": "Laporan dan setoran tepat waktu (on time).",
+    "target": null
+  },
+  {
+    "id": "fc9056dd-73fb-4a58-ba5a-68e3aa5ce1b2",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "5a060ea5-e37d-49d0-a993-65d81c40230f",
+    "description": "Mampu mendelegasikan tim secara jelas.",
+    "target": null
+  },
+  {
+    "id": "8323fd9e-fa5b-4bbf-b6d4-aad01c64546e",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "f1decfab-614c-4d0f-8372-67ba686a25af",
+    "description": "Membangun karakter kepemimpinan yang bertanggung jawab dan humanis.",
+    "target": null
+  },
+  {
+    "id": "edcc8296-805b-471f-995e-ad4e7f18a2b2",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "de4506b3-cbd8-4793-a9e1-753a2f2008f2",
+    "description": "Mampu menjadi jembatan antara SL dan tim.",
+    "target": null
+  },
+  {
+    "id": "5e7d6598-89c0-43fa-b1db-fa01a9129167",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "2b140e90-43d0-49e5-a21c-7d40f8bfb5fc",
+    "description": "Fokus menjalankan regulasi serta aturan SOP Perusahaan.",
+    "target": null
+  },
+  {
+    "id": "9b093f46-1fe9-43de-b98d-ba03f97ff4e4",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "2b140e90-43d0-49e5-a21c-7d40f8bfb5fc",
+    "description": "Berkomitmen secara konsisten terkait integritas dan menjadi role model tim.",
+    "target": null
+  },
+  {
+    "id": "a01082b0-4803-4c29-8ed0-6df6b08fd5e1",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "73651c38-3897-44c4-9a66-59516fe59fb0",
+    "description": "Mampu mendelegasikan tim secara jelas.",
+    "target": null
+  },
+  {
+    "id": "312a59cc-140e-4525-bfd0-c8dd4b61108f",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "f6fca564-9a06-469d-8440-d351b95199f3",
+    "description": "Membangun karakter kepemimpinan yang bertanggung jawab dan humanis.",
+    "target": null
+  },
+  {
+    "id": "96a8cf92-f52e-4b6b-bf4a-57b277255ecd",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "908fb112-173c-4698-adc6-ae52b8a49cad",
+    "description": "Mampu menjadi jembatan antara SL dan tim.",
+    "target": null
+  },
+  {
+    "id": "2759e243-8536-487c-8bf7-5544d5a81db5",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "4fcd6547-920f-41d6-a38a-958ac46219b7",
+    "description": "Fokus menjalankan regulasi serta aturan SOP Perusahaan.",
+    "target": null
+  },
+  {
+    "id": "db6a3041-3a6d-47a3-9bcf-2e0a6de9e9aa",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "4fcd6547-920f-41d6-a38a-958ac46219b7",
+    "description": "Berkomitmen secara konsisten terkait integritas dan menjadi role model tim.",
+    "target": null
+  },
+  {
+    "id": "72137a21-6802-4a16-bd03-e83d8b4c2410",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "e01d4f86-bbd7-4f05-bdb9-714f602ecc2e",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "a2c8fccd-39de-4bc0-9288-b1b96861daa8",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "0eb8fa53-8827-434e-9d86-3de4d2406c0a",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "9ec999ef-b57e-4cf9-b1e7-35359421c562",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "a873c0f7-6117-4379-90fb-5bb0bb6fb690",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "2eac0331-baf4-4bf9-a786-a2a645904291",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "34647d8c-0822-4375-b3c1-1a4483340c69",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "2dfc1138-1a42-4ab1-9656-6db6c8bd6775",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "708b4b07-a4a5-4396-b1ae-e5a8f7dbf5b1",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "d7fb2c21-0f04-45b6-89c1-4f4dfeba59b8",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "f17b5fc2-3d59-49ae-9f63-ddbab4b30484",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "4dcbbeba-8683-470f-9ec5-e279868abf4a",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "d399f30f-6619-448c-9bde-768354bdf2e4",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "f184cdd2-517c-4eb9-bd9a-b0a45003ec0f",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "68e59b57-a74b-403b-a1f9-f56bad10d565",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "cf839672-243a-4683-bc08-e4e61fac0300",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "809a3e24-56ca-4751-b2da-34504a9c01e6",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "e9afafc5-e5f3-4de5-ba81-4a90aaaf79f5",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "b35f6808-274f-4104-b49f-e8ad9c892649",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "ce100ca8-3b68-4edc-85c5-5e987d507fcc",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "537f3f01-efdb-47a9-ba22-f9fc30678843",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "1459c999-aa9d-4778-96cb-e5e87afa464c",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "626cf4cc-e057-493f-8c74-ccd81106e228",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "f7fbe44c-3a04-4ecf-b11a-73354ad34c4b",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "98a81e62-d6bd-43a6-8a43-b5c36292de8c",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "24e7fd87-0e8f-4e95-957f-bd2babb52053",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "ae42c0ea-7e73-4793-96c1-c67ba3f9c709",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "20beb25e-29bd-41e2-ab2b-37f0f7c61bf1",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "43fb3061-4df3-4caf-8c58-47475b6ceeef",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "76b36acd-22e9-474b-8b0a-f9eb145cc31a",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "809841ca-f4ca-4ef4-ad27-3271c6aa4fcb",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "e9bfc99e-657d-4a35-a39d-67ddc3632316",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "86768739-6839-454f-949d-751600357ebb",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "e42d0555-c791-492c-9918-0022db332236",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "57caa9f6-044b-4622-8f34-c73c543c0063",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "9d9dc352-19df-4767-b379-09651844da9b",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "3da7afe7-1fe6-498c-9e4a-959b4069ce4f",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "cf6425be-950c-4c20-860a-5edcd4b6dd74",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "d5db131b-325d-4f87-a6ba-f6b6d8a4fbeb",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "11fc143b-f474-4824-9ede-b60990e61afa",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "2229d362-6e06-40e8-9ece-9553db9abe61",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "601a94e0-502f-4e50-bb41-50d502db0e97",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "5bffdab2-fa98-455e-ad5b-a4f7cf2c17de",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "442ebb99-c00e-4fcd-ae18-117d8614a03d",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "e2f9e675-9df7-4685-858a-0f8e21b8e85d",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "8e9ba300-369b-45fb-9db9-3752e6578581",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "bcd58132-0b42-4575-b600-2f69b5d32e40",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "33e12ac2-edf6-4d76-8cab-e959e3df901c",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "be629688-27c5-46e8-a800-ae9acf16a812",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "853ff433-8dd9-4845-8856-65176c041c0f",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "26b2b61f-b2d3-4285-8f90-f992c0c36fe4",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "d00000d8-fc71-4fcb-bfab-0ade7d1a615a",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "2c7fc72f-b6d5-4fb8-b0df-bfb29827f6aa",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "3af46a22-5bcf-468c-ad28-2262b2daabca",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "c0961269-c35b-45e5-aa4c-17a906a41b58",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "d073c69a-4487-4403-a8b8-a8c8890607c3",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "71db380c-30b7-4b24-94c7-f6d817ddc934",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "f3906e9d-940c-4b7c-a401-9569f15c324c",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "427f11b4-1f7b-4de5-8fa8-4c75a9d371bd",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "a07a31bc-fb55-4329-a5c5-6a42ef96f6e5",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "acd94c7c-ce86-40f6-8a36-a2a9aa6d9efb",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "79f7fbb6-0076-4033-9f4b-051d4133107e",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "ac0ecc54-191d-4d14-8385-bbbbeb56d667",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "6c2be452-836e-47ed-9ac3-425627f469a5",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "e9238524-2b26-40df-a692-411d00ccf963",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "70d4dd80-d568-49f0-8a62-32aeecd2c77f",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "43143e6e-8e05-4e9a-8f8c-86ba0d119503",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "3787cda5-766d-46a2-8c53-ed88614965c2",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "ccb37f56-92f6-49a4-adcb-43d662c92085",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "e221749c-0ae1-460b-8b10-e4fd4d04804b",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "eaef1a9d-ab23-4d72-b408-474254ac17d7",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "504802b5-05e6-42c7-b6b5-6f2bce0d3b14",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "4ffe9b72-c805-472d-91bc-3c6e6c32a74b",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "cb575b53-a0cb-46a7-a12f-bd4da9af02c3",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "608cc657-cd74-4e7b-8197-44681b9b5f36",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "ff7d06f5-0720-494b-8004-0f4919dffb82",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "b79106fa-bebc-41ed-874a-cad5ad54a829",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "0785dd48-a8f6-448c-b566-727057a1d5ef",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "be940933-50d7-4399-b5bb-032e60ae0ea5",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "ca90865e-8196-449b-907a-6b0c52760c93",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "a632285b-76a9-4eb1-ab53-d08e9d3d12b5",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "fca36334-3098-421b-b9ba-2649a6d2b2ea",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "4a5e15bb-ec0e-4c1d-ae37-81b24346f6fb",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "f23c782b-2835-4c5b-bb59-7f75b4069d86",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "a6329fb7-7d26-4d81-9363-8f03d2e584b8",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "a1810e1b-8a40-4f96-b5a8-ef3e9fb085ba",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "4f55e200-5921-4cd0-a593-475ffeec0132",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "661ddaac-928a-4c4d-b93b-7ce678c48dc7",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "18eaf31c-4881-413d-bc41-11c2f9c2c196",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "0240cbe5-f9e7-410e-95f7-788889be4885",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "1959014e-7d3e-4ce5-ac77-fd69cc5c0937",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "cf289c55-61cb-49d4-bae4-c6a30f8afa33",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "a2121037-0311-4d57-a901-728c73ab36df",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "50abb5ca-7a15-4e6f-a97e-b73518fea01f",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "69bd2e3f-972f-4b21-842b-b9368412dfd4",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "7f6efabf-5724-49b5-9436-e0810a85db23",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "a8420e1f-b15f-439c-8d96-631d7c96985b",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "906de87a-3145-438e-a247-8f7d29d6396f",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "c5c8fc94-6482-4da0-a491-3b0d16e8508e",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "81e13a08-5e4c-4250-ae06-213029324aac",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "a91e4df3-b1b2-4e67-95f5-5d409ec2a119",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "6ece15c0-098a-440e-8ab1-b4d9c193c798",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "9344e9b3-ea52-437e-b80f-6628caa82871",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "a85b129d-19a2-4047-9104-33e5103f5d13",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "0ea45d57-3cfe-4b99-94ba-2f102dd06887",
+    "description": "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0.",
+    "target": null
+  },
+  {
+    "id": "d0d41396-e009-4d0e-93ca-bf06d90a1444",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "e0b4334c-ad74-4b6d-aaac-f819504c5d45",
+    "description": "Paham dan pentingnya mencapai target yang ditentukan.",
+    "target": null
+  },
+  {
+    "id": "f45c7090-6b29-4074-80ef-602f9a633bee",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "3c28b0fc-ddd1-4ed3-a711-dfb28b424852",
+    "description": "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%.",
+    "target": null
+  },
+  {
+    "id": "71548971-1998-4799-ab6a-ec2fba94cec3",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "2ddd36fe-c171-47f0-b136-55898da19a41",
+    "description": "Development / succession plan 70% hire staff ke SL.",
+    "target": null
+  },
+  {
+    "id": "91c4da04-1de9-4996-9e1d-93b7afc599c2",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "13a826be-8860-4343-9f59-e5adb74379ba",
+    "description": "Sebagai role model untuk menjalankan integritas Secure Area, memastikan administrasi seputar in/out barang datang sesuai regulasi.",
+    "target": null
+  },
+  {
+    "id": "7372b720-7758-4dcd-a341-61ff6b0fba3e",
+    "createdAt": "2026-08-31T14:50:22.582Z",
+    "updatedAt": "2026-08-31T14:50:22.582Z",
+    "jobdeskId": "6c484e56-e0d4-4a8b-b6bc-22b904b0b140",
+    "description": "Menjadi tangan kanan Store Leader seputar pengawasan area standing point staff (tidak boleh ada area kosong / bergerombol).",
+    "target": null
+  }
+]

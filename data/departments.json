@@ -1,0 +1,44 @@
+[
+  {
+    "id": "a86b5e95-1838-46ea-ad7c-7a96c0b666b0",
+    "createdAt": "2026-08-30T14:15:55.678Z",
+    "updatedAt": "2026-08-30T14:15:55.679Z",
+    "name": "Stockroom"
+  },
+  {
+    "id": "d22218f1-0c7d-4e59-9ed0-61520fffe908",
+    "createdAt": "2026-08-30T14:15:55.686Z",
+    "updatedAt": "2026-08-30T14:15:55.686Z",
+    "name": "Admin"
+  },
+  {
+    "id": "0fea606e-ec93-473e-a222-df79642d841c",
+    "createdAt": "2026-08-30T14:15:55.696Z",
+    "updatedAt": "2026-08-30T14:15:55.696Z",
+    "name": "Online"
+  },
+  {
+    "id": "f8672b75-5a66-42db-8ccc-bac2f02a86e2",
+    "createdAt": "2026-08-30T14:15:55.700Z",
+    "updatedAt": "2026-08-30T14:15:55.700Z",
+    "name": "Kasir"
+  },
+  {
+    "id": "fc9f2566-60bd-4e21-9e19-65d1c034732b",
+    "createdAt": "2026-08-30T14:15:55.708Z",
+    "updatedAt": "2026-08-30T14:15:55.708Z",
+    "name": "Lastcall"
+  },
+  {
+    "id": "2e8b7c90-634e-48d9-93f0-54a643122cd9",
+    "createdAt": "2026-08-30T14:15:55.718Z",
+    "updatedAt": "2026-08-30T14:15:55.718Z",
+    "name": "Reguler"
+  },
+  {
+    "id": "16ef6231-aa82-4d14-becf-fb57743363f4",
+    "createdAt": "2026-08-30T14:15:55.728Z",
+    "updatedAt": "2026-08-30T14:15:55.728Z",
+    "name": "Security"
+  }
+]

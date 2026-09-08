@@ -1,0 +1,2264 @@
+[
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Tito",
+    "jobdeskNo": 1,
+    "title": "Penerimaan barang Baik dari DC/Store",
+    "continuation": "Memastikan toko penerima, jumlah koli, DO, serta fisik barang sesuai.",
+    "kpis": [
+      "Akurasi Receiving: Tidak ada selisih."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Tito",
+    "jobdeskNo": 2,
+    "title": "Maintenance Stockroom",
+    "continuation": "Gudang rapi, terdapat layout dan penempatan barang sesuai, serta terjaga kebersihannya.",
+    "kpis": [
+      "Kerapihan Gudang: Hasil audit gudang bernilai bagus."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Tito",
+    "jobdeskNo": 3,
+    "title": "Return dan transfer",
+    "continuation": "Proses pengelompokan (grouping) dan scan sampai proses pengiriman, serta memastikan barang diterima toko tujuan.",
+    "kpis": [
+      "Shrinkage: Barang hilang seminim mungkin."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Tito",
+    "jobdeskNo": 4,
+    "title": "Pengelolaan barang defect dan stock nol, non MD",
+    "continuation": "Memastikan pendataan barang defect, stock nol, non-MD, dan penempatannya di gudang.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Tito",
+    "jobdeskNo": 5,
+    "title": "Filing",
+    "continuation": "Memastikan arsip/dokumen barang datang tersimpan rapi.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Tito",
+    "jobdeskNo": 6,
+    "title": "ICC",
+    "continuation": "Melakukan Inventory Control Checklist / pencatatan berkala.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ragil",
+    "jobdeskNo": 1,
+    "title": "Penerimaan barang Baik dari DC/Store",
+    "continuation": "Memastikan toko penerima, jumlah koli, DO, serta fisik barang sesuai.",
+    "kpis": [
+      "Akurasi Receiving: Tidak ada selisih."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ragil",
+    "jobdeskNo": 2,
+    "title": "Maintenance Stockroom",
+    "continuation": "Gudang rapi, terdapat layout dan penempatan barang sesuai, serta terjaga kebersihannya.",
+    "kpis": [
+      "Kerapihan Gudang: Hasil audit gudang bernilai bagus."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ragil",
+    "jobdeskNo": 3,
+    "title": "Return dan transfer",
+    "continuation": "Proses pengelompokan (grouping) dan scan sampai proses pengiriman, serta memastikan barang diterima toko tujuan.",
+    "kpis": [
+      "Shrinkage: Barang hilang seminim mungkin."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ragil",
+    "jobdeskNo": 4,
+    "title": "Pengelolaan barang defect dan stock nol, non MD",
+    "continuation": "Memastikan pendataan barang defect, stock nol, non-MD, dan penempatannya di gudang.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ragil",
+    "jobdeskNo": 5,
+    "title": "Filing",
+    "continuation": "Memastikan arsip/dokumen barang datang tersimpan rapi.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ragil",
+    "jobdeskNo": 6,
+    "title": "ICC",
+    "continuation": "Melakukan Inventory Control Checklist / pencatatan berkala.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ryan",
+    "jobdeskNo": 1,
+    "title": "Penerimaan barang Baik dari DC/Store",
+    "continuation": "Memastikan toko penerima, jumlah koli, DO, serta fisik barang sesuai.",
+    "kpis": [
+      "Akurasi Receiving: Tidak ada selisih."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ryan",
+    "jobdeskNo": 2,
+    "title": "Maintenance Stockroom",
+    "continuation": "Gudang rapi, terdapat layout dan penempatan barang sesuai, serta terjaga kebersihannya.",
+    "kpis": [
+      "Kerapihan Gudang: Hasil audit gudang bernilai bagus."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ryan",
+    "jobdeskNo": 3,
+    "title": "Return dan transfer",
+    "continuation": "Proses pengelompokan (grouping) dan scan sampai proses pengiriman, serta memastikan barang diterima toko tujuan.",
+    "kpis": [
+      "Shrinkage: Barang hilang seminim mungkin."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ryan",
+    "jobdeskNo": 4,
+    "title": "Pengelolaan barang defect dan stock nol, non MD",
+    "continuation": "Memastikan pendataan barang defect, stock nol, non-MD, dan penempatannya di gudang.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ryan",
+    "jobdeskNo": 5,
+    "title": "Filing",
+    "continuation": "Memastikan arsip/dokumen barang datang tersimpan rapi.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Ryan",
+    "jobdeskNo": 6,
+    "title": "ICC",
+    "continuation": "Melakukan Inventory Control Checklist / pencatatan berkala.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Alfredo",
+    "jobdeskNo": 1,
+    "title": "Penerimaan barang Baik dari DC/Store",
+    "continuation": "Memastikan toko penerima, jumlah koli, DO, serta fisik barang sesuai.",
+    "kpis": [
+      "Akurasi Receiving: Tidak ada selisih."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Alfredo",
+    "jobdeskNo": 2,
+    "title": "Maintenance Stockroom",
+    "continuation": "Gudang rapi, terdapat layout dan penempatan barang sesuai, serta terjaga kebersihannya.",
+    "kpis": [
+      "Kerapihan Gudang: Hasil audit gudang bernilai bagus."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Alfredo",
+    "jobdeskNo": 3,
+    "title": "Return dan transfer",
+    "continuation": "Proses pengelompokan (grouping) dan scan sampai proses pengiriman, serta memastikan barang diterima toko tujuan.",
+    "kpis": [
+      "Shrinkage: Barang hilang seminim mungkin."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Alfredo",
+    "jobdeskNo": 4,
+    "title": "Pengelolaan barang defect dan stock nol, non MD",
+    "continuation": "Memastikan pendataan barang defect, stock nol, non-MD, dan penempatannya di gudang.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Alfredo",
+    "jobdeskNo": 5,
+    "title": "Filing",
+    "continuation": "Memastikan arsip/dokumen barang datang tersimpan rapi.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Stockroom",
+    "team": null,
+    "person": "Alfredo",
+    "jobdeskNo": 6,
+    "title": "ICC",
+    "continuation": "Melakukan Inventory Control Checklist / pencatatan berkala.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 1,
+    "title": "Cek email dan memastikan semua informasi sampai ke SL/Team",
+    "continuation": "Serta merespon email.",
+    "kpis": [
+      "Tidak ada informasi dari Head Office (HO) yang terlewat."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 2,
+    "title": "Cek GIT, GR, dan POD",
+    "continuation": null,
+    "kpis": [
+      "Barang datang tidak ada yang tertunda (kepending) pada GR dan POD."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 3,
+    "title": "PL store",
+    "continuation": null,
+    "kpis": [
+      "File rapi dan mudah dicari."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 4,
+    "title": "Tarik data stock setiap hari",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 5,
+    "title": "Pastikan BOD success",
+    "continuation": null,
+    "kpis": [
+      "Akurasi Database (DB) dan Sales Floor (SF) tinggi."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 6,
+    "title": "Absensi & Jadwal Karyawan",
+    "continuation": "Membuat jadwal shift, menginput cuti dan lembur ke sistem HR.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 7,
+    "title": "Surat-menyurat",
+    "continuation": "Membuat Berita Acara (BA), memo, dan surat ke pihak mall.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 8,
+    "title": "Laporan Penjualan Harian/Mingguan",
+    "continuation": "By day: Print Plain target dari SF, update buku DSR, Success Board. Report Store / AM.",
+    "kpis": [
+      "Laporan tepat waktu (Report Ontime)."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 9,
+    "title": "Persiapkan uang setoran",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Admin",
+    "team": null,
+    "person": "Ardan",
+    "jobdeskNo": 10,
+    "title": "Back up kasir / online",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Online",
+    "team": null,
+    "person": "Rizki",
+    "jobdeskNo": 1,
+    "title": "Handel CNB dan O2O",
+    "continuation": null,
+    "kpis": [
+      "Kontribusi CNB 10%; O2O 1% untuk nillpick."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Online",
+    "team": null,
+    "person": "Rizki",
+    "jobdeskNo": 2,
+    "title": "Order packing O2O dan buat daftar (list) data defect di O2O",
+    "continuation": null,
+    "kpis": [
+      "Stok packing selalu tersedia."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Online",
+    "team": null,
+    "person": "Rizki",
+    "jobdeskNo": 3,
+    "title": "Link Payment CNB",
+    "continuation": "Mengikuti regulasi pembuatan link pada periode jam 12, 14, 16, 18, dan 20 agar tim fokus menangani O2O.",
+    "kpis": [
+      "Pengiriman CNB tidak ada yang tertunda."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Online",
+    "team": null,
+    "person": "Rizki",
+    "jobdeskNo": 4,
+    "title": "Konsisten mengunggah (upload) produk dan konten",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Online",
+    "team": null,
+    "person": "Ahnaf",
+    "jobdeskNo": 1,
+    "title": "Handel CNB dan O2O",
+    "continuation": null,
+    "kpis": [
+      "Kontribusi CNB 10%; O2O 1% untuk nillpick."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Online",
+    "team": null,
+    "person": "Ahnaf",
+    "jobdeskNo": 2,
+    "title": "Order packing O2O dan buat daftar (list) data defect di O2O",
+    "continuation": null,
+    "kpis": [
+      "Stok packing selalu tersedia."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Online",
+    "team": null,
+    "person": "Ahnaf",
+    "jobdeskNo": 3,
+    "title": "Link Payment CNB",
+    "continuation": "Mengikuti regulasi pembuatan link pada periode jam 12, 14, 16, 18, dan 20 agar tim fokus menangani O2O.",
+    "kpis": [
+      "Pengiriman CNB tidak ada yang tertunda."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Online",
+    "team": null,
+    "person": "Ahnaf",
+    "jobdeskNo": 4,
+    "title": "Konsisten mengunggah (upload) produk dan konten",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Fatimah",
+    "jobdeskNo": 1,
+    "title": "Opening & Closing Kasir",
+    "continuation": "Buka kasir, cek float. Tutup kasir, hitung uang, cocokkan dengan struk sistem. Setor ke bank. Cek transaksi masuk sistem (tidak ada void/retur menggantung). Cocokkan transaksi Debit/Kredit/QRIS dengan laporan bank.",
+    "kpis": [
+      "No lost barang tanpa pembayaran.",
+      "Tidak ada harga nol yang terjual.",
+      "Area kasir rapi dan bersih.",
+      "Tidak ada exchange karena kesalahan barang (tertukar)."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Fatimah",
+    "jobdeskNo": 2,
+    "title": "Report Kasir",
+    "continuation": "CDA-CAA, Voucher.",
+    "kpis": [
+      "Laporan dan setoran tepat waktu (on time)."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Fatimah",
+    "jobdeskNo": 3,
+    "title": "Filing BA exchange note, kesalahan payment, dan transaksi gantung",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Fatimah",
+    "jobdeskNo": 4,
+    "title": "Kerapian dan kebersihan area kasir",
+    "continuation": "Bebas dari barang cancel, pendingan, Non-MD (hanger, saletag), serta CNB after payment.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Fatimah",
+    "jobdeskNo": 5,
+    "title": "Order shopping bag",
+    "continuation": "Memastikan persediaan cukup.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Fatimah",
+    "jobdeskNo": 6,
+    "title": "Memastikan pelanggan menggunakan member dan menginformasikan NPS ke pelanggan",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Icha",
+    "jobdeskNo": 1,
+    "title": "Opening & Closing Kasir",
+    "continuation": "Buka kasir, cek float. Tutup kasir, hitung uang, cocokkan dengan struk sistem. Setor ke bank. Cek transaksi masuk sistem (tidak ada void/retur menggantung). Cocokkan transaksi Debit/Kredit/QRIS dengan laporan bank.",
+    "kpis": [
+      "No lost barang tanpa pembayaran.",
+      "Tidak ada harga nol yang terjual.",
+      "Area kasir rapi dan bersih.",
+      "Tidak ada exchange karena kesalahan barang (tertukar)."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Icha",
+    "jobdeskNo": 2,
+    "title": "Report Kasir",
+    "continuation": "CDA-CAA, Voucher.",
+    "kpis": [
+      "Laporan dan setoran tepat waktu (on time)."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Icha",
+    "jobdeskNo": 3,
+    "title": "Filing BA exchange note, kesalahan payment, dan transaksi gantung",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Icha",
+    "jobdeskNo": 4,
+    "title": "Kerapian dan kebersihan area kasir",
+    "continuation": "Bebas dari barang cancel, pendingan, Non-MD (hanger, saletag), serta CNB after payment.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Icha",
+    "jobdeskNo": 5,
+    "title": "Order shopping bag",
+    "continuation": "Memastikan persediaan cukup.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Kasir",
+    "team": null,
+    "person": "Icha",
+    "jobdeskNo": 6,
+    "title": "Memastikan pelanggan menggunakan member dan menginformasikan NPS ke pelanggan",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Aldo",
+    "jobdeskNo": 1,
+    "title": "Monitor & Control pembagian area selling",
+    "continuation": "Cek DSR staff, cek Map Club & NPS.",
+    "kpis": [
+      "Mampu mendelegasikan tim secara jelas."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Aldo",
+    "jobdeskNo": 2,
+    "title": "Cek regulasi pembagian tugas yang jelas (Refill, Migrasi, Pricing)",
+    "continuation": "Infokan jika ada urgen tugas pagi.",
+    "kpis": [
+      "Membangun karakter kepemimpinan yang bertanggung jawab dan humanis."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Aldo",
+    "jobdeskNo": 3,
+    "title": "Back up kasir",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Aldo",
+    "jobdeskNo": 4,
+    "title": "Back up SL off",
+    "continuation": "Briefing pagi 09.30 & cek email serta on call HP tidak boleh dialihkan/mati.",
+    "kpis": [
+      "Mampu menjadi jembatan antara SL dan tim."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Aldo",
+    "jobdeskNo": 5,
+    "title": "Wajib komunikasi dan koordinasi terkait skala urgensi (poin 1 & 4) ke SL secara transparan",
+    "continuation": "Tidak diperkenankan membuat keputusan di luar SOP yang berlaku tanpa sepengetahuan SL.",
+    "kpis": [
+      "Fokus menjalankan regulasi serta aturan SOP Perusahaan.",
+      "Berkomitmen secara konsisten terkait integritas dan menjadi role model tim."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Aldo",
+    "jobdeskNo": 6,
+    "title": "Menjadi pribadi yang jujur, profesional, dan objektif",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Ilham",
+    "jobdeskNo": 1,
+    "title": "Monitor & Control pembagian area selling",
+    "continuation": "Cek DSR staff, cek Map Club & NPS.",
+    "kpis": [
+      "Mampu mendelegasikan tim secara jelas."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Ilham",
+    "jobdeskNo": 2,
+    "title": "Cek regulasi pembagian tugas yang jelas (Refill, Migrasi, Pricing)",
+    "continuation": "Infokan jika ada urgen tugas pagi.",
+    "kpis": [
+      "Membangun karakter kepemimpinan yang bertanggung jawab dan humanis."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Ilham",
+    "jobdeskNo": 3,
+    "title": "Back up kasir",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Ilham",
+    "jobdeskNo": 4,
+    "title": "Back up SL off",
+    "continuation": "Briefing pagi 09.30 & cek email serta on call HP tidak boleh dialihkan/mati.",
+    "kpis": [
+      "Mampu menjadi jembatan antara SL dan tim."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Ilham",
+    "jobdeskNo": 5,
+    "title": "Wajib komunikasi dan koordinasi terkait skala urgensi (poin 1 & 4) ke SL secara transparan",
+    "continuation": "Tidak diperkenankan membuat keputusan di luar SOP yang berlaku tanpa sepengetahuan SL.",
+    "kpis": [
+      "Fokus menjalankan regulasi serta aturan SOP Perusahaan.",
+      "Berkomitmen secara konsisten terkait integritas dan menjadi role model tim."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Ilham",
+    "jobdeskNo": 6,
+    "title": "Menjadi pribadi yang jujur, profesional, dan objektif",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Bagas",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Bagas",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Bagas",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Bagas",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Bagas",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Bagas",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Bagas",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Bagas",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Nanda",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Nanda",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Nanda",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Nanda",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Nanda",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Nanda",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Nanda",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Nanda",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Junan",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Junan",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Junan",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Junan",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Junan",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Junan",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Junan",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Junan",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Dimas",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Dimas",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Dimas",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Dimas",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Dimas",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Dimas",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Dimas",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Dimas",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Findi",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Findi",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Findi",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Findi",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Findi",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Findi",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Findi",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Findi",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Shufi",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Shufi",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Shufi",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Shufi",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Shufi",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Shufi",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Shufi",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Shufi",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Ahmad",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Ahmad",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Ahmad",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Ahmad",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Ahmad",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Ahmad",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Ahmad",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Lastcall",
+    "team": null,
+    "person": "Ahmad",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Damas",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Damas",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Damas",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Damas",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Damas",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Damas",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Damas",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Damas",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Dodik",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Dodik",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Dodik",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Dodik",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Dodik",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Dodik",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Dodik",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Dodik",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Sheva",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Sheva",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Sheva",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Sheva",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Sheva",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Sheva",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Sheva",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Sheva",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Manda",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Manda",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Manda",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Manda",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Manda",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Manda",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Manda",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Manda",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Fadli",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Fadli",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Fadli",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Fadli",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Fadli",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Fadli",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Fadli",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Fadli",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Chelvin",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Chelvin",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Chelvin",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Chelvin",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Chelvin",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Chelvin",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Chelvin",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Chelvin",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Alan",
+    "jobdeskNo": 1,
+    "title": "Cek Floor",
+    "continuation": "Kebersihan, kerapian, Visual Merchandising/VM, Price.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Alan",
+    "jobdeskNo": 2,
+    "title": "Memastikan paham target & levers yang sudah ditentukan",
+    "continuation": null,
+    "kpis": [
+      "Paham dalam menjalankan regulasi dan tanggung jawab seputar SRE & ACX 2.0."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Alan",
+    "jobdeskNo": 3,
+    "title": "Memastikan selalu mengisi DSR staff",
+    "continuation": null,
+    "kpis": [
+      "Paham dan pentingnya mencapai target yang ditentukan."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Alan",
+    "jobdeskNo": 4,
+    "title": "Memastikan grooming sesuai dengan SOP",
+    "continuation": null,
+    "kpis": [
+      "Disiplin dalam absensi di Darwinbox sesuai SF agar akurasi di atas 90%."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Alan",
+    "jobdeskNo": 5,
+    "title": "Memastikan selalu menjalankan ACX 2.0, SRE, MAP CLUB, NPS",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Alan",
+    "jobdeskNo": 6,
+    "title": "Cek kerapian storage setiap hari",
+    "continuation": "Tidak ada kardus di area entrance & gudang rapi.",
+    "kpis": [
+      "Development / succession plan 70% hire staff ke SL."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Alan",
+    "jobdeskNo": 7,
+    "title": "Komunikasi dan koordinasi ke 2nd Leader / SL terkait pencapaian sales daily / tugas yang dikerjakan",
+    "continuation": "Update di grup utama melampirkan foto.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Reguler",
+    "team": null,
+    "person": "Alan",
+    "jobdeskNo": 8,
+    "title": "Disiplin terkait DARWINBOX & SF",
+    "continuation": "Shift Change, Attendance Request, OVT Request.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 1,
+    "title": "Secure Area Monitoring & Controlling",
+    "continuation": "Pastikan komunikasi & koordinasi ke tim secara kooperatif.",
+    "kpis": [
+      "Sebagai role model untuk menjalankan integritas Secure Area, memastikan administrasi seputar in/out barang datang sesuai regulasi."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 2,
+    "title": "Memastikan ada buku in/out barang masuk/keluar",
+    "continuation": "Barang datang Ekspedisi MD & NON MD punya store & Office.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 3,
+    "title": "Pastikan selalu cek surat izin masuk/keluar barang mall",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 4,
+    "title": "Pastikan selalu check body dan check staff setiap keluar store",
+    "continuation": "Break / Pulang.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 5,
+    "title": "Pastikan cek gembok rolling door secara keseluruhan setiap close store",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 6,
+    "title": "Pastikan selalu menjalankan Greeting",
+    "continuation": "SENYUM, SAPA, SALAM & SOPAN.",
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 7,
+    "title": "Wajib komunikasi dan koordinasi jika ada skala urgensi ke SL seputar Operasional Store / Integritas tim",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 8,
+    "title": "Pastikan cek tim staff tidak ada aktivitas memainkan HP di floor",
+    "continuation": null,
+    "kpis": [
+      "Menjadi tangan kanan Store Leader seputar pengawasan area standing point staff (tidak boleh ada area kosong / bergerombol)."
+    ]
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 9,
+    "title": "Pengecekan fitting room & storage secara berkala untuk memastikan tidak ada hal yang tidak diinginkan",
+    "continuation": null,
+    "kpis": []
+  },
+  {
+    "sourceRow": null,
+    "sourceRows": [],
+    "division": "Security",
+    "team": null,
+    "person": "Putra",
+    "jobdeskNo": 10,
+    "title": "Selalu mengingatkan tim terkait barang Non-MD di Selling Area agar tidak dikomplain pihak mall",
+    "continuation": null,
+    "kpis": []
+  }
+]
