@@ -14,10 +14,49 @@ export default function UploadView({ jobdesks = [] }) {
   const tabs = [["work", "Hasil Kerja"], ["lxp", "LXP"], ["dsr", "DSR Staff"]];
   const label = tabs.find(([value]) => value === tab)?.[1];
 
-  function addFiles(event, source) {
+  // Foto dari kamera HP biasanya beberapa MB per file — kalau kirim lebih
+  // dari 1 foto sekaligus, total ukuran request gampang kena limit ukuran
+  // server dan gagal (inilah error yang muncul di HP). Di sini foto
+  // dikecilkan & dikompres dulu di browser SEBELUM dikirim, supaya beberapa
+  // foto sekaligus tetap ringan dan tidak error saat diupload bareng.
+  const MAX_DIMENSION = 1600; // px, sisi terpanjang
+  const JPEG_QUALITY = 0.72;
+  const COMPRESS_THRESHOLD = 1.2 * 1024 * 1024; // hanya kompres kalau > 1.2 MB
+
+  function compressImage(file) {
+    return new Promise((resolve) => {
+      if (!file.type.startsWith("image/") || file.size <= COMPRESS_THRESHOLD) {
+        resolve(file);
+        return;
+      }
+      const objectUrl = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        let { width, height } = img;
+        if (width > height && width > MAX_DIMENSION) { height = Math.round((height * MAX_DIMENSION) / width); width = MAX_DIMENSION; }
+        else if (height > MAX_DIMENSION) { width = Math.round((width * MAX_DIMENSION) / height); height = MAX_DIMENSION; }
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(img, 0, 0, width, height);
+        canvas.toBlob((blob) => {
+          URL.revokeObjectURL(objectUrl);
+          if (!blob || blob.size >= file.size) { resolve(file); return; }
+          const newName = file.name.replace(/\.(png|heic|heif|webp)$/i, ".jpg");
+          resolve(new File([blob], newName, { type: "image/jpeg", lastModified: Date.now() }));
+        }, "image/jpeg", JPEG_QUALITY);
+      };
+      img.onerror = () => { URL.revokeObjectURL(objectUrl); resolve(file); };
+      img.src = objectUrl;
+    });
+  }
+
+  async function addFiles(event, source) {
     const selected = Array.from(event.target.files || []);
-    if (selected.length) setFiles((current) => [...current, ...selected.map((file) => ({ file, source }))]);
     event.target.value = "";
+    if (!selected.length) return;
+    const processed = await Promise.all(selected.map((file) => compressImage(file)));
+    setFiles((current) => [...current, ...processed.map((file) => ({ file, source }))]);
   }
 
   async function upload() {
