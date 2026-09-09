@@ -1,1 +1,19 @@
-node_modules
+node_modules/
+.next/
+.vercel/
+.env
+.env.local
+.env*.local
+*.log
+
+# data/departments.json, users.json, jobdesks.json, kpis.json, dan
+# jobdesk_source.json SENGAJA tetap ikut di-commit — dipakai scripts/seed.js
+# sebagai snapshot sumber untuk mengisi Neon pertama kali. Yang di-ignore di
+# bawah ini cuma data runtime lokal (kalau kebetulan pernah jalan tanpa
+# POSTGRES_URL) supaya tidak ikut ter-commit.
+data/work_uploads.json
+data/lxp_uploads.json
+data/dsr_uploads.json
+data/daily_reports.json
+data/daily_progress.json
+data/files/

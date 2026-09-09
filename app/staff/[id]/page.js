@@ -1,9 +1,12 @@
 import { notFound } from "next/navigation";
 import { requireAdmin } from "@/lib/session";
 import { getStaffJobdesks, statusClass, statusLabel } from "@/lib/data";
+import { POSITION_OPTIONS } from "@/lib/positions";
 import db from "@/lib/db";
 import AppShell from "@/components/AppShell";
 import Icon from "@/components/Icons";
+import StaffPositionForm from "@/components/StaffPositionForm";
+import StaffRoleForm from "@/components/StaffRoleForm";
 
 function roleLabel(role) {
   return role === "ADMIN" ? "Administrator" : "Staff";
@@ -29,6 +32,12 @@ export default async function StaffDetailPage({ params }) {
       <span className="avatar large">{staff.name.slice(0, 2).toUpperCase()}</span>
       <div><h2>{staff.name}</h2><p>{staff.position || roleLabel(staff.role)} · {department?.name || "Tanpa divisi"} · {staff.email}</p></div>
       <span className={`status ${isActive ? "status-completed" : "status-not-started"}`} style={{ marginLeft: "auto" }}>{isActive ? "Active" : "Inactive"}</span>
+    </section>
+
+    <section className="card section-card" style={{ marginTop: 18 }}>
+      <div className="card-heading"><div><h2>Ubah Posisi & Role</h2><p>Pilih posisi/jabatan dan role akses staff ini dari daftar yang tersedia.</p></div><Icon name="user" size={17} /></div>
+      <StaffPositionForm currentPosition={staff.position || "Staff"} options={POSITION_OPTIONS} staffId={staff.id} />
+      <StaffRoleForm currentRole={staff.role} staffId={staff.id} />
     </section>
 
     <div className="stat-grid" style={{ marginTop: 18 }}>

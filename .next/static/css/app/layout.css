@@ -517,6 +517,9 @@ video {
 .visible{
   visibility: visible;
 }
+.inline{
+  display: inline;
+}
 .flex{
   display: flex;
 }
