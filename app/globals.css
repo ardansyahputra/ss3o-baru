@@ -1263,21 +1263,126 @@ textarea:focus-visible {
 .report-note small { color: var(--muted); display: block; font-size: 10px; margin-top: 7px; }
 .proof-grid { display: grid; gap: 9px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .proof-card { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.proof-card > img { background: #f3e6da; display: block; height: 100px; object-fit: cover; width: 100%; }
+.proof-thumb { position: relative; }
+.proof-thumb > img { background: #f3e6da; display: block; height: 100px; object-fit: cover; width: 100%; }
+.proof-thumb .preview-eye {
+  bottom: 6px;
+  position: absolute;
+  right: 6px;
+}
 .proof-file { align-items: center; background: #fdf6f0; color: #d94512; display: flex; flex-direction: column; gap: 5px; height: 100px; justify-content: center; padding: 8px; text-align: center; }
 .proof-file strong { color: var(--ink); display: block; font-size: 10px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .proof-file span { color: var(--muted); font-size: 9px; }
 .proof-card-foot { align-items: center; display: flex; justify-content: space-between; padding: 8px 9px 3px; }
 .proof-card-foot .status { font-size: 9px; padding: 3px 6px; }
 .proof-card-foot .text-link { font-size: 10px; }
-.proof-actions { display: flex; gap: 5px; padding: 6px 9px 8px; }
-.proof-actions button { background: transparent; border: 0; color: var(--blue); font-size: 9px; font-weight: 700; padding: 0; }
-.proof-actions button:last-child { color: var(--red); }
+.proof-actions { display: flex; gap: 5px; padding: 6px 9px 9px; }
+.proof-action {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1;
+  font-size: 9.5px;
+  font-weight: 800;
+  gap: 4px;
+  justify-content: center;
+  padding: 6px 4px;
+  transition: filter .12s ease, transform .05s ease;
+}
+.proof-action:active { transform: scale(.97); }
+.proof-action:disabled { cursor: default; opacity: .55; }
+.proof-action-approve { background: #e6f6ec; color: #1c8a53; }
+.proof-action-approve:hover:not(:disabled) { background: #d5f0e0; }
+.proof-action-revision { background: #fff3e2; color: #b6660b; }
+.proof-action-revision:hover:not(:disabled) { background: #ffe8c9; }
+.proof-action-reject { background: #fdeceb; color: #c81f0e; }
+.proof-action-reject:hover:not(:disabled) { background: #fadcda; }
 .drawer-empty { align-items: center; color: var(--muted); display: flex; flex-direction: column; font-size: 11px; gap: 7px; padding: 17px; }
 .drawer-actions { background: white; border-top: 1px solid var(--line); bottom: 0; padding: 13px 18px; position: sticky; }
 .drawer-actions textarea { min-height: 72px; margin-bottom: 9px; padding: 9px; width: 100%; }
 .drawer-action-row { display: flex; gap: 7px; justify-content: flex-end; }
 .drawer-action-row .button { min-height: 34px; }
+
+/* Toast sukses/error — dipakai ReviewDrawer setelah approve/revisi/reject. */
+.toast {
+  align-items: center;
+  animation: welcome-fade-in .15s ease-out both;
+  background: var(--navy-950);
+  border-radius: 9px;
+  bottom: 18px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .28);
+  color: #fff;
+  display: flex;
+  font-size: 11.5px;
+  gap: 9px;
+  left: 50%;
+  padding: 10px 14px;
+  position: sticky;
+  transform: translateX(-50%);
+  width: fit-content;
+  z-index: 60;
+}
+.toast-success { background: #1c8a53; }
+.toast-error { background: #c81f0e; }
+.toast-close { background: transparent; border: 0; color: inherit; cursor: pointer; display: inline-flex; margin-left: 4px; opacity: .8; padding: 0; }
+.toast-close:hover { opacity: 1; }
+
+/* Modal konfirmasi sukses setelah Approve/Revisi/Reject di panel Proof
+   Inspection — dipakai bareng ReviewSuccessModal.js. */
+.success-modal-backdrop {
+  align-items: center;
+  background: rgba(7, 21, 37, .5);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+  z-index: 80;
+}
+.success-modal {
+  animation: welcome-fade-in .16s ease-out both;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(7, 21, 37, .3);
+  max-width: 340px;
+  padding: 26px 24px 22px;
+  text-align: center;
+  width: 100%;
+}
+.success-modal-icon {
+  align-items: center;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 46px;
+  justify-content: center;
+  margin: 0 auto 14px;
+  width: 46px;
+}
+.success-modal-icon-success { background: #e6f6ec; color: #1c8a53; }
+.success-modal-icon-warning { background: #fff3e2; color: #b6660b; }
+.success-modal-icon-danger { background: #fdeceb; color: #c81f0e; }
+.success-modal h3 { font-size: 16px; letter-spacing: -.02em; margin: 0 0 8px; }
+.success-modal p { color: var(--muted); font-size: 12px; line-height: 1.55; margin: 0 0 14px; }
+.success-modal-target { background: #f6f8fb; border-radius: 7px; color: var(--ink); font-size: 11px; font-weight: 700; margin-bottom: 16px; padding: 7px 10px; word-break: break-word; }
+.success-modal .button { width: 100%; }
+
+/* Tombol sortir kolom "Upload Terakhir" di tabel folder Bukti Upload. */
+.sort-header {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-weight: inherit;
+  gap: 4px;
+  padding: 0;
+}
+.sort-icon { transform: rotate(90deg); transition: transform .15s; }
+.sort-icon.sort-asc { transform: rotate(-90deg); }
 
 @media (max-width: 1100px) {
   .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

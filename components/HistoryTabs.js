@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Icon from "@/components/Icons";
+import ImagePreview from "@/components/ImagePreview";
 
 const tabOptions = [
   ["reports", "Reports"],
@@ -75,7 +76,7 @@ export default function HistoryTabs({ reports, uploads, users, jobdesks }) {
         </tbody></table></div>
       ) : <div className="empty-state"><Icon name="history" size={28} /><strong>Belum ada history report</strong><p>Belum ada report yang cocok dengan filter.</p></div> : filteredUploads.length ? (
         <div className="table-wrap"><table className="data-table"><thead><tr><th>File</th><th>Jenis</th><th>Sumber</th><th>Jobdesk</th><th>Tanggal</th><th>Status</th><th>Aksi</th></tr></thead><tbody>
-          {filteredUploads.map((upload) => <tr key={`${upload.type}-${upload.id}`}><td><div className="table-title">{upload.fileName}</div><div className="table-muted">{Math.ceil((upload.size || 0) / 1024)} KB</div></td><td>{upload.typeLabel}</td><td><span className="status status-progress">{upload.source || "Perangkat"}</span></td><td>{upload.jobdeskTitle || "-"}</td><td>{upload.date || "-"}</td><td><span className={`status ${uploadStatusClass(upload.approvalStatus)}`}>{uploadStatusLabel(upload.approvalStatus)}</span></td><td>{upload.filePath ? <a className="text-link" download href={upload.filePath}>Unduh</a> : "-"}</td></tr>)}
+          {filteredUploads.map((upload) => <tr key={`${upload.type}-${upload.id}`}><td><div className="table-title-row"><span className="table-title">{upload.fileName}</span>{upload.mimeType?.startsWith("image/") && upload.filePath && <ImagePreview src={upload.filePath} label={upload.fileName} caption={`${upload.typeLabel} · ${upload.jobdeskTitle || "Tanpa jobdesk"}`} />}</div><div className="table-muted">{Math.ceil((upload.size || 0) / 1024)} KB</div></td><td>{upload.typeLabel}</td><td><span className="status status-progress">{upload.source || "Perangkat"}</span></td><td>{upload.jobdeskTitle || "-"}</td><td>{upload.date || "-"}</td><td><span className={`status ${uploadStatusClass(upload.approvalStatus)}`}>{uploadStatusLabel(upload.approvalStatus)}</span></td><td>{upload.filePath ? <a className="text-link" download href={upload.filePath}>Unduh</a> : "-"}</td></tr>)}
         </tbody></table></div>
       ) : <div className="empty-state"><Icon name="upload" size={28} /><strong>Belum ada bukti upload</strong><p>Belum ada file yang cocok dengan filter.</p></div>}
     </div>

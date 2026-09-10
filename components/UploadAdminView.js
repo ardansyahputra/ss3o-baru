@@ -4,10 +4,12 @@ import { useMemo, useState } from "react";
 import Icon from "@/components/Icons";
 import ReviewDrawer from "@/components/ReviewDrawer";
 
-export default function UploadAdminView({ uploads }) {
+export default function UploadAdminView({ uploads, staffProgress = {} }) {
   const [type, setType] = useState("all");
   const [status, setStatus] = useState("all");
   const [selected, setSelected] = useState(null);
+  // "desc" = upload terbaru dulu, "asc" = upload terlama dulu.
+  const [sortOrder, setSortOrder] = useState("desc");
   // Salinan lokal dari uploads supaya status approve/revisi/reject bisa
   // langsung ter-update di daftar folder tanpa perlu reload halaman.
   const [items, setItems] = useState(uploads);
@@ -21,11 +23,20 @@ export default function UploadAdminView({ uploads }) {
     const map = new Map();
     for (const item of filtered) {
       const key = item.userId || item.userName;
-      if (!map.has(key)) map.set(key, { key, userId: item.userId, name: item.userName, department: item.department, position: item.position, uploads: [] });
+      if (!map.has(key)) {
+        // Ambil progress & jobdesk hari ini staff ini (kalau ada di peta
+        // staffProgress) supaya panel Proof Inspection tidak lagi selalu
+        // menampilkan 0% / 0 jobdesk padahal staff-nya sudah kerja.
+        const info = staffProgress[item.userId] || {};
+        map.set(key, { key, userId: item.userId, name: item.userName, department: item.department, position: item.position, progress: info.progress || 0, jobs: info.jobs || [], report: info.report || null, uploads: [] });
+      }
       map.get(key).uploads.push(item);
     }
-    return [...map.values()].sort((a, b) => a.name.localeCompare(b.name));
-  }, [filtered]);
+    const list = [...map.values()];
+    list.forEach((folder) => { folder.latestDate = folder.uploads.reduce((latest, item) => (!latest || (item.date || "") > latest ? item.date : latest), ""); });
+    list.sort((a, b) => sortOrder === "desc" ? (b.latestDate || "").localeCompare(a.latestDate || "") : (a.latestDate || "").localeCompare(b.latestDate || ""));
+    return list;
+  }, [filtered, sortOrder]);
 
   function exportSummary() {
     const header = ["File", "Staff", "Jenis", "Sumber", "Jobdesk", "Tanggal", "Status"];
@@ -53,16 +64,15 @@ export default function UploadAdminView({ uploads }) {
     {folders.length
       ? <div className="table-wrap">
           <table className="data-table">
-            <thead><tr><th>Staff</th><th>Jenis</th><th>Upload Terakhir</th><th>Jumlah Berkas</th><th>Aksi</th></tr></thead>
+            <thead><tr><th>Staff</th><th>Jenis</th><th><button className="sort-header" onClick={() => setSortOrder((current) => current === "desc" ? "asc" : "desc")} type="button">Upload Terakhir <Icon name="arrow" size={12} className={sortOrder === "asc" ? "sort-icon sort-asc" : "sort-icon"} /></button></th><th>Jumlah Berkas</th><th>Aksi</th></tr></thead>
             <tbody>
               {folders.map((folder) => {
                 const pendingCount = folder.uploads.filter((item) => item.approvalStatus === "PENDING").length;
-                const latestDate = folder.uploads.reduce((latest, item) => (!latest || (item.date || "") > latest ? item.date : latest), "");
                 const typeLabels = [...new Set(folder.uploads.map((item) => item.typeLabel))];
                 return <tr key={folder.key}>
                   <td><div className="person"><span className="avatar">{folder.name.slice(0, 2).toUpperCase()}</span><div className="person-copy"><strong>{folder.name}</strong><span>{folder.position} · {folder.department}</span></div></div></td>
                   <td>{typeLabels.join(", ")}</td>
-                  <td>{latestDate || "-"}</td>
+                  <td>{folder.latestDate || "-"}</td>
                   <td><span className="upload-count"><Icon name="file" size={13} /> {folder.uploads.length} berkas{pendingCount ? ` · ${pendingCount} menunggu` : ""}</span></td>
                   <td><button className="review-button" onClick={() => setSelected(folder)}>Lihat Upload <Icon name="arrow" size={13} /></button></td>
                 </tr>;
@@ -71,6 +81,6 @@ export default function UploadAdminView({ uploads }) {
           </table>
         </div>
       : <div className="empty-state"><Icon name="upload" size={28} /><strong>Belum ada dokumen</strong><p>Upload staff akan muncul di sini untuk diperiksa.</p></div>}
-    {selected && <ReviewDrawer person={{ name: selected.name, department: selected.department, position: selected.position, progress: 0, jobs: [], report: null, uploads: selected.uploads, uploadCount: selected.uploads.length }} onClose={() => setSelected(null)} onReviewed={reviewed} />}
+    {selected && <ReviewDrawer person={{ name: selected.name, department: selected.department, position: selected.position, progress: selected.progress, jobs: selected.jobs, report: selected.report, uploads: selected.uploads, uploadCount: selected.uploads.length }} onClose={() => setSelected(null)} onReviewed={reviewed} />}
   </div>;
 }
