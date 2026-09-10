@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Icon from "@/components/Icons";
 
-export default function UploadView({ jobdesks = [] }) {
+export default function UploadView({ jobdesks = [], notices = [] }) {
   const [tab, setTab] = useState("work");
   const [files, setFiles] = useState([]);
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
@@ -71,8 +71,14 @@ export default function UploadView({ jobdesks = [] }) {
       body.append("notes", notes);
       if (jobdeskId) body.append("jobdeskId", jobdeskId);
       const response = await fetch("/api/uploads", { method: "POST", body });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || "Upload gagal.");
+      // Kadang server bisa balas bukan JSON (mis. koneksi terputus di
+      // tengah upload foto besar dari HP) — kalau langsung response.json()
+      // tanpa dibungkus try/catch, staff akan lihat pesan mentah
+      // "Unexpected end of JSON input" yang membingungkan. Di sini kalau
+      // gagal di-parse, tampilkan pesan yang jelas sesuai status HTTP-nya.
+      let result = {};
+      try { result = await response.json(); } catch { result = {}; }
+      if (!response.ok) throw new Error(result.error || `Upload gagal, coba lagi (status ${response.status}).`);
       setMessage(`${result.records?.length || files.length} file berhasil diupload.`);
       setFiles([]);
       setNotes("");
@@ -83,7 +89,18 @@ export default function UploadView({ jobdesks = [] }) {
     }
   }
 
-  return <div className="card section-card">
+  return <>
+    {notices.length > 0 && <div className="card section-card" style={{ marginBottom: 16 }}>
+      <strong style={{ fontSize: 13 }}>Dari Admin</strong>
+      <div style={{ display: "grid", gap: 7, marginTop: 10 }}>
+        {notices.map((item) => <div key={item.id} style={{ background: "#f6f8fa", borderRadius: 7, display: "grid", fontSize: 11.5, gap: 3, padding: "9px 10px" }}>
+          <span style={{ color: "var(--muted)" }}>{item.adminName || "Admin"} · {(item.createdAt || "").slice(0, 10)}</span>
+          {item.notes && <span style={{ whiteSpace: "pre-wrap" }}>{item.notes}</span>}
+          {item.filePath && <a className="text-link" download href={item.filePath}>{item.fileName || "Lihat file"}</a>}
+        </div>)}
+      </div>
+    </div>}
+    <div className="card section-card">
     <div className="tab-bar">{tabs.map(([value, text]) => <button className={`tab ${tab === value ? "active" : ""}`} key={value} onClick={() => { setTab(value); setFiles([]); setMessage(""); }}>{text}</button>)}</div>
     <div className="form-grid" style={{ maxWidth: 900 }}>
       <div className="form-group"><label className="form-label">Tanggal</label><input className="field form-control" type="date" value={date} onChange={(event) => setDate(event.target.value)} /></div>
@@ -103,5 +120,5 @@ export default function UploadView({ jobdesks = [] }) {
       </div>
     </div>
     <div style={{ alignItems: "center", display: "flex", justifyContent: "flex-end", marginTop: 20 }}>{message && <span style={{ color: message.includes("berhasil") ? "var(--green)" : "var(--red)", fontSize: 12, marginRight: "auto" }}>{message}</span>}<button className="button button-primary" disabled={uploading} onClick={upload}>{uploading ? "Mengupload..." : `Upload ${files.length || ""} ${label}`.trim()} <Icon name="arrow" size={14} /></button></div>
-  </div>;
+  </div></>;
 }
