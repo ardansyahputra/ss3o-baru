@@ -1,7 +1,8 @@
 {
-  "/api/notifications/route": "app/api/notifications/route.js",
+  "/page": "app/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/uploads/page": "app/uploads/page.js",
-  "/staff/page": "app/staff/page.js",
-  "/api/reviews/route": "app/api/reviews/route.js"
+  "/login/page": "app/login/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/api/notifications/route": "app/api/notifications/route.js",
+  "/uploads/page": "app/uploads/page.js"
 }

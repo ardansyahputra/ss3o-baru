@@ -7,6 +7,7 @@ import ReviewDrawer from "@/components/ReviewDrawer";
 export default function UploadAdminView({ uploads, staffProgress = {} }) {
   const [type, setType] = useState("all");
   const [status, setStatus] = useState("all");
+  const [date, setDate] = useState("");
   const [selected, setSelected] = useState(null);
   // "desc" = upload terbaru dulu, "asc" = upload terlama dulu.
   const [sortOrder, setSortOrder] = useState("desc");
@@ -14,7 +15,7 @@ export default function UploadAdminView({ uploads, staffProgress = {} }) {
   // langsung ter-update di daftar folder tanpa perlu reload halaman.
   const [items, setItems] = useState(uploads);
 
-  const filtered = useMemo(() => items.filter((item) => (type === "all" || item.type === type) && (status === "all" || item.approvalStatus === status)), [items, type, status]);
+  const filtered = useMemo(() => items.filter((item) => (type === "all" || item.type === type) && (status === "all" || item.approvalStatus === status) && (!date || item.date === date)), [items, type, status, date]);
 
   // Kelompokkan berkas per staff jadi "folder" — supaya daftar tidak
   // memanjang satu-satu per file. Admin cukup pencet nama staff (mis.
@@ -57,7 +58,9 @@ export default function UploadAdminView({ uploads, staffProgress = {} }) {
   return <div className="card section-card">
     <div className="filter-bar">
       <select className="select" value={type} onChange={(event) => setType(event.target.value)}><option value="all">Semua jenis upload</option><option value="work">Hasil Kerja</option><option value="lxp">LXP</option><option value="dsr">DSR Staff</option></select>
-      <select className="select" value={status} onChange={(event) => setStatus(event.target.value)}><option value="all">Semua status</option><option value="PENDING">Menunggu Review</option><option value="APPROVED">Disetujui</option><option value="REVISION">Perlu Revisi</option></select>
+      <select className="select" value={status} onChange={(event) => setStatus(event.target.value)}><option value="all">Semua status</option><option value="PENDING">Menunggu Review</option><option value="APPROVED">Disetujui</option><option value="REJECTED">Ditolak</option></select>
+      <input aria-label="Filter tanggal upload" className="field" type="date" value={date} onChange={(event) => setDate(event.target.value)} />
+      {date && <button className="button button-ghost" onClick={() => setDate("")} type="button">Reset tanggal</button>}
       <span style={{ color: "var(--muted)", fontSize: 11, marginLeft: "auto" }}>{folders.length} staff · {filtered.length} berkas</span>
       <button className="button button-secondary" onClick={exportSummary}><Icon name="file" size={14} /> Export Summary Report</button>
     </div>

@@ -20,11 +20,11 @@ function reportStatusLabel(status) {
 }
 
 function uploadStatusClass(status) {
-  return status === "APPROVED" ? "status-completed" : status === "REVISION" ? "status-revision" : "status-pending";
+  return status === "APPROVED" ? "status-completed" : status === "REVISION" || status === "REJECTED" ? "status-revision" : "status-pending";
 }
 
 function uploadStatusLabel(status) {
-  return status === "APPROVED" ? "Disetujui" : status === "REVISION" ? "Perlu Revisi" : "Menunggu Review";
+  return status === "APPROVED" ? "Disetujui" : status === "REVISION" ? "Perlu Revisi" : status === "REJECTED" ? "Ditolak" : "Menunggu Review";
 }
 
 export default function HistoryTabs({ reports, uploads, users, jobdesks }) {
@@ -65,7 +65,7 @@ export default function HistoryTabs({ reports, uploads, users, jobdesks }) {
         <input aria-label="Filter tanggal" className="field" type="date" value={date} onChange={(event) => setDate(event.target.value)} />
         <select aria-label="Filter status" className="select" value={status} onChange={(event) => setStatus(event.target.value)}>
           <option value="all">Semua status</option>
-          {tab === "reports" ? <><option value="COMPLETED">Completed</option><option value="ON_PROGRESS">On Progress</option><option value="PENDING">Pending</option></> : <><option value="PENDING">Menunggu Review</option><option value="APPROVED">Disetujui</option><option value="REVISION">Perlu Revisi</option></>}
+          {tab === "reports" ? <><option value="COMPLETED">Completed</option><option value="ON_PROGRESS">On Progress</option><option value="PENDING">Pending</option></> : <><option value="PENDING">Menunggu Review</option><option value="APPROVED">Disetujui</option><option value="REVISION">Perlu Revisi</option><option value="REJECTED">Ditolak</option></>}
         </select>
         {(query || date || status !== "all") && <button className="button button-ghost" onClick={() => { setQuery(""); setDate(""); setStatus("all"); }} type="button">Reset filter</button>}
       </div>
@@ -76,7 +76,7 @@ export default function HistoryTabs({ reports, uploads, users, jobdesks }) {
         </tbody></table></div>
       ) : <div className="empty-state"><Icon name="history" size={28} /><strong>Belum ada history report</strong><p>Belum ada report yang cocok dengan filter.</p></div> : filteredUploads.length ? (
         <div className="table-wrap"><table className="data-table"><thead><tr><th>File</th><th>Jenis</th><th>Sumber</th><th>Jobdesk</th><th>Tanggal</th><th>Status</th><th>Aksi</th></tr></thead><tbody>
-          {filteredUploads.map((upload) => <tr key={`${upload.type}-${upload.id}`}><td><div className="table-title-row"><span className="table-title">{upload.fileName}</span>{upload.mimeType?.startsWith("image/") && upload.filePath && <ImagePreview src={upload.filePath} label={upload.fileName} caption={`${upload.typeLabel} · ${upload.jobdeskTitle || "Tanpa jobdesk"}`} />}</div><div className="table-muted">{Math.ceil((upload.size || 0) / 1024)} KB</div></td><td>{upload.typeLabel}</td><td><span className="status status-progress">{upload.source || "Perangkat"}</span></td><td>{upload.jobdeskTitle || "-"}</td><td>{upload.date || "-"}</td><td><span className={`status ${uploadStatusClass(upload.approvalStatus)}`}>{uploadStatusLabel(upload.approvalStatus)}</span></td><td>{upload.filePath ? <a className="text-link" download href={upload.filePath}>Unduh</a> : "-"}</td></tr>)}
+          {filteredUploads.map((upload) => <tr key={`${upload.type}-${upload.id}`}><td><div className="table-title-row"><span className="table-title">{upload.fileName}</span>{upload.mimeType?.startsWith("image/") && upload.filePath && <ImagePreview src={upload.filePath} label={upload.fileName} caption={`${upload.typeLabel} · ${upload.jobdeskTitle || "Tanpa jobdesk"}`} />}</div><div className="table-muted">{Math.ceil((upload.size || 0) / 1024)} KB</div></td><td>{upload.typeLabel}</td><td><span className="status status-progress">{upload.source || "Perangkat"}</span></td><td>{upload.jobdeskTitle || "-"}</td><td>{upload.date || "-"}</td><td><span className={`status ${uploadStatusClass(upload.approvalStatus)}`}>{uploadStatusLabel(upload.approvalStatus)}</span>{upload.approvalStatus === "REJECTED" && upload.reviewNotes && <div className="table-muted" style={{ marginTop: 4, maxWidth: 160 }}>{upload.reviewNotes}</div>}</td><td>{upload.filePath ? <a className="text-link" download href={upload.filePath}>Unduh</a> : "-"}</td></tr>)}
         </tbody></table></div>
       ) : <div className="empty-state"><Icon name="upload" size={28} /><strong>Belum ada bukti upload</strong><p>Belum ada file yang cocok dengan filter.</p></div>}
     </div>
