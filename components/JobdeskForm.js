@@ -8,7 +8,10 @@ export default function JobdeskForm({ departments, users }) {
   const router = useRouter();
   const [form, setForm] = useState({
     title: "",
-    departmentId: departments[0]?.id || "",
+    // Default kosong = "Semua Departemen" supaya admin bisa langsung lihat
+    // seluruh staff lintas departemen kalau mau, tanpa wajib pilih satu
+    // departemen dulu.
+    departmentId: "",
     userId: "",
     priority: "MEDIUM",
     description: "",
@@ -28,7 +31,9 @@ export default function JobdeskForm({ departments, users }) {
 
   function updateDepartment(departmentId) {
     setForm((current) => {
-      const stillValid = users.some((item) => item.id === current.userId && item.departmentId === departmentId);
+      // "Semua Departemen" (departmentId kosong) berarti semua staff valid,
+      // jadi pilihan staff yang sudah ada tidak perlu direset.
+      const stillValid = current.userId === "ALL" || !departmentId || users.some((item) => item.id === current.userId && item.departmentId === departmentId);
       return { ...current, departmentId, userId: stillValid ? current.userId : "" };
     });
   }
@@ -43,6 +48,7 @@ export default function JobdeskForm({ departments, users }) {
       if (!response.ok) throw new Error(result.error || "Jobdesk gagal disimpan.");
       router.push("/jobdesk");
       router.refresh();
+      if (result.count > 1) window.setTimeout(() => window.alert(`Jobdesk berhasil dibuat untuk ${result.count} staff.`), 150);
     } catch (error) {
       setMessage(error.message);
       setSaving(false);
@@ -58,18 +64,21 @@ export default function JobdeskForm({ departments, users }) {
         </div>
         <div className="form-group">
           <label className="form-label">Divisi / Departemen</label>
-          <select className="select form-control" value={form.departmentId} onChange={(event) => updateDepartment(event.target.value)} required>
-            <option value="">Pilih departemen</option>
+          <select className="select form-control" value={form.departmentId} onChange={(event) => updateDepartment(event.target.value)}>
+            <option value="">Semua Departemen</option>
             {departments.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
           </select>
+          {!form.departmentId && <small style={{ color: "var(--muted)" }}>Jobdesk akan bisa ditugaskan ke staff dari departemen manapun.</small>}
         </div>
         <div className="form-group">
           <label className="form-label">Staff penanggung jawab</label>
           <select className="select form-control" value={form.userId} onChange={(event) => update("userId", event.target.value)} required>
             <option value="">Pilih staff</option>
+            {staffOptions.length > 0 && <option value="ALL">{form.departmentId ? `Semua Staff (${staffOptions.length} staff di departemen ini)` : `Semua Staff (${staffOptions.length} staff di semua departemen)`}</option>}
             {staffOptions.map((item) => <option key={item.id} value={item.id}>{item.name}{item.position ? ` — ${item.position}` : ""} ({item.role === "ADMIN" ? "Admin" : "Staff"})</option>)}
           </select>
-          {form.departmentId && !staffOptions.length && <small style={{ color: "var(--red)" }}>Belum ada staff aktif di departemen ini.</small>}
+          {!staffOptions.length && <small style={{ color: "var(--red)" }}>Belum ada staff aktif{form.departmentId ? " di departemen ini" : ""}.</small>}
+          {form.userId === "ALL" && <small style={{ color: "var(--muted)" }}>Jobdesk ini akan otomatis dibuat untuk {form.departmentId ? `setiap staff di departemen yang dipilih` : "seluruh staff di semua departemen"} ({staffOptions.length} staff).</small>}
         </div>
         <div className="form-group">
           <label className="form-label">Priority</label>

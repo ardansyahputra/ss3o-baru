@@ -18,13 +18,41 @@ export async function POST(request) {
   const body = await request.json();
   if (!body.title?.trim()) return NextResponse.json({ error: "Judul jobdesk wajib diisi." }, { status: 400 });
   if (!body.userId) return NextResponse.json({ error: "Staff yang mengerjakan wajib dipilih." }, { status: 400 });
-  const staff = await db.find("users", (item) => item.id === body.userId);
-  if (!staff) return NextResponse.json({ error: "Staff tidak ditemukan." }, { status: 404 });
 
   const target = parseTargetCount(body.targetCount);
   if (target.error) return NextResponse.json({ error: target.error }, { status: 400 });
-
   const priority = PRIORITIES.includes(body.priority) ? body.priority : "MEDIUM";
+
+  // "Semua Staff": buat satu jobdesk yang sama untuk setiap staff aktif di
+  // departemen yang dipilih, bukan cuma satu staff tertentu.
+  if (body.userId === "ALL") {
+    const staffList = await db.filter("users", (item) => item.isActive !== false && (!body.departmentId || item.departmentId === body.departmentId));
+    if (!staffList.length) return NextResponse.json({ error: "Belum ada staff aktif di departemen ini." }, { status: 400 });
+    const records = [];
+    for (const staff of staffList) {
+      records.push(await db.insert("jobdesks", {
+        title: body.title.trim(),
+        description: body.description?.trim() || null,
+        priority,
+        active: true,
+        departmentId: body.departmentId || staff.departmentId || null,
+        userId: staff.id,
+        targetCount: target.targetCount,
+        sourceRow: null,
+        sourceDivision: null,
+        sourceTeam: null,
+        sourcePerson: staff.name,
+        sourceJobdeskNo: null,
+        sourceText: null,
+        sourceRows: [],
+        kpis: [],
+      }));
+    }
+    return NextResponse.json({ ok: true, records, count: records.length });
+  }
+
+  const staff = await db.find("users", (item) => item.id === body.userId);
+  if (!staff) return NextResponse.json({ error: "Staff tidak ditemukan." }, { status: 404 });
   const record = await db.insert("jobdesks", {
     title: body.title.trim(),
     description: body.description?.trim() || null,
@@ -42,7 +70,7 @@ export async function POST(request) {
     sourceRows: [],
     kpis: [],
   });
-  return NextResponse.json({ ok: true, record });
+  return NextResponse.json({ ok: true, record, count: 1 });
 }
 
 export async function PATCH(request) {

@@ -16,19 +16,33 @@ export default function JobdeskTable({ allJobdesks, departments, kpis, initialSe
   const [department, setDepartment] = useState("all");
   const [priority, setPriority] = useState("all");
   const [status, setStatus] = useState("all");
+  const [staffFilter, setStaffFilter] = useState("all");
+
+  // Daftar staff untuk filter diambil dari jobdesk yang sudah ada, supaya
+  // tidak perlu ambil data staff tambahan dari server.
+  const staffOptions = useMemo(() => {
+    const map = new Map();
+    for (const item of allJobdesks) {
+      if (item.user?.id && !map.has(item.user.id)) map.set(item.user.id, item.user.name);
+    }
+    return [...map.entries()].sort((a, b) => a[1].localeCompare(b[1]));
+  }, [allJobdesks]);
+
   const filtered = useMemo(() => allJobdesks.filter((item) => {
     const haystack = `${item.title} ${item.description || ""} ${item.user?.name || ""}`.toLowerCase();
     return (!query || haystack.includes(query.toLowerCase())) &&
       (department === "all" || item.departmentId === department) &&
       (priority === "all" || item.priority === priority) &&
-      (status === "all" || item.status === status);
-  }), [allJobdesks, query, department, priority, status]);
+      (status === "all" || item.status === status) &&
+      (staffFilter === "all" || item.user?.id === staffFilter);
+  }), [allJobdesks, query, department, priority, status, staffFilter]);
 
   function reset() {
     setQuery("");
     setDepartment("all");
     setPriority("all");
     setStatus("all");
+    setStaffFilter("all");
   }
 
   return <section className="card section-card">
@@ -37,7 +51,8 @@ export default function JobdeskTable({ allJobdesks, departments, kpis, initialSe
       <select aria-label="Filter department" className="select" value={department} onChange={(event) => setDepartment(event.target.value)}><option value="all">Semua department</option>{departments.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select>
       <select aria-label="Filter priority" className="select" value={priority} onChange={(event) => setPriority(event.target.value)}><option value="all">Semua priority</option><option value="URGENT">URGENT</option><option value="HIGH">HIGH</option><option value="MEDIUM">MEDIUM</option><option value="LOW">LOW</option></select>
       <select aria-label="Filter status" className="select" value={status} onChange={(event) => setStatus(event.target.value)}><option value="all">Semua status</option><option value="COMPLETED">Completed</option><option value="ON_PROGRESS">On Progress</option><option value="PENDING">Pending</option><option value="NOT_STARTED">Not Started</option></select>
-      {(query || department !== "all" || priority !== "all" || status !== "all") && <button className="button button-ghost" onClick={reset} type="button">Reset</button>}
+      <select aria-label="Filter staff" className="select" value={staffFilter} onChange={(event) => setStaffFilter(event.target.value)}><option value="all">Semua Staff</option>{staffOptions.map(([id, name]) => <option key={id} value={id}>{name}</option>)}</select>
+      {(query || department !== "all" || priority !== "all" || status !== "all" || staffFilter !== "all") && <button className="button button-ghost" onClick={reset} type="button">Reset</button>}
       <span className="filter-result">{filtered.length} jobdesk</span>
     </div>
     {filtered.length ? <div className="table-wrap"><table className="data-table"><thead><tr><th>Jobdesk</th><th>Staff</th><th>Department</th><th>Priority</th><th>KPI</th><th>Status</th><th>Aksi</th></tr></thead><tbody>{filtered.map((item) => <tr key={item.id}><td><div className="table-title">{item.title}</div><div className="table-muted">{item.description || "Tidak ada deskripsi"}</div></td><td>{item.user?.name || "-"}</td><td>{item.department?.name || "-"}</td><td><span className={`priority priority-${item.priority}`}>{item.priority}</span></td><td>{kpis.filter((kpi) => kpi.jobdeskId === item.id).length}</td><td><span className={`status ${statusClass(item.status)}`}>{statusLabel(item.status)}</span></td><td><a className="text-link" href={`/jobdesk/${item.id}`}>Edit</a></td></tr>)}</tbody></table></div> : <div className="empty-state"><Icon name="briefcase" size={28} /><strong>Jobdesk tidak ditemukan</strong><p>Sesuaikan kata kunci atau reset filter.</p></div>}
