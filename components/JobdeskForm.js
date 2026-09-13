@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Icon from "@/components/Icons";
+import { roleLabel } from "@/lib/roles";
 
 export default function JobdeskForm({ departments, users }) {
   const router = useRouter();
@@ -68,7 +69,7 @@ export default function JobdeskForm({ departments, users }) {
           <select className="select form-control" value={form.userId} onChange={(event) => update("userId", event.target.value)} required>
             <option value="">Pilih staff</option>
             {form.departmentId && staffOptions.length > 0 && <option value="ALL">👥 Semua Staff ({staffOptions.length} orang)</option>}
-            {staffOptions.map((item) => <option key={item.id} value={item.id}>{item.name}{item.position ? ` — ${item.position}` : ""} ({item.role === "ADMIN" ? "Admin" : "Staff"})</option>)}
+            {staffOptions.map((item) => <option key={item.id} value={item.id}>{item.name}{item.position ? ` — ${item.position}` : ""} ({roleLabel(item.role)})</option>)}
           </select>
           {form.departmentId && !staffOptions.length && <small style={{ color: "var(--red)" }}>Belum ada staff aktif di departemen ini.</small>}
           {form.userId === "ALL" && <small style={{ color: "var(--muted)" }}>Jobdesk ini akan dibuat untuk setiap staff aktif di departemen terpilih, masing-masing dengan progress sendiri.</small>}

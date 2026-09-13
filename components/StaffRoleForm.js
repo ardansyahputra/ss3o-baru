@@ -6,6 +6,7 @@ import Icon from "@/components/Icons";
 
 const ROLE_OPTIONS = [
   { value: "STAFF", label: "Staff" },
+  { value: "LEADER", label: "2nd Leader" },
   { value: "ADMIN", label: "Administrator" }
 ];
 

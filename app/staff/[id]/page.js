@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { requireAdmin } from "@/lib/session";
+import { roleLabel } from "@/lib/roles";
 import { getStaffJobdesks, statusClass, statusLabel } from "@/lib/data";
 import { POSITION_OPTIONS } from "@/lib/positions";
 import db from "@/lib/db";
@@ -7,10 +8,7 @@ import AppShell from "@/components/AppShell";
 import Icon from "@/components/Icons";
 import StaffPositionForm from "@/components/StaffPositionForm";
 import StaffRoleForm from "@/components/StaffRoleForm";
-
-function roleLabel(role) {
-  return role === "ADMIN" ? "Administrator" : "Staff";
-}
+import StaffIdForm from "@/components/StaffIdForm";
 
 export default async function StaffDetailPage({ params }) {
   const user = await requireAdmin();
@@ -20,7 +18,7 @@ export default async function StaffDetailPage({ params }) {
   const jobdesks = await getStaffJobdesks(staff.id);
   const reports = await db.filter("daily_reports", (item) => item.userId === staff.id);
   const isActive = staff.isActive !== false;
-  const average = jobdesks.length ? Math.round(jobdesks.reduce((sum, item) => sum + item.progress, 0) / jobdesks.length) : 0;
+  const totalUploads = jobdesks.reduce((sum, item) => sum + (item.uploadCount || 0), 0);
 
   return <AppShell title="Staff Detail" user={user}>
     <div className="page-header">
@@ -30,20 +28,21 @@ export default async function StaffDetailPage({ params }) {
 
     <section className="card profile-card">
       <span className="avatar large">{staff.name.slice(0, 2).toUpperCase()}</span>
-      <div><h2>{staff.name}</h2><p>{staff.position || roleLabel(staff.role)} · {department?.name || "Tanpa divisi"} · {staff.email}</p></div>
+      <div><h2>{staff.name}</h2><p>{staff.position || roleLabel(staff.role)} · {department?.name || "Tanpa divisi"} · {staff.email}{staff.staffCode ? ` · ID: ${staff.staffCode}` : ""}</p></div>
       <span className={`status ${isActive ? "status-completed" : "status-not-started"}`} style={{ marginLeft: "auto" }}>{isActive ? "Active" : "Inactive"}</span>
     </section>
 
     <section className="card section-card" style={{ marginTop: 18 }}>
-      <div className="card-heading"><div><h2>Ubah Posisi & Role</h2><p>Pilih posisi/jabatan dan role akses staff ini dari daftar yang tersedia.</p></div><Icon name="user" size={17} /></div>
+      <div className="card-heading"><div><h2>Ubah Posisi, Role & ID Staff</h2><p>Pilih posisi/jabatan, role akses, dan ID staff internal dari sini.</p></div><Icon name="user" size={17} /></div>
       <StaffPositionForm currentPosition={staff.position || "Staff"} options={POSITION_OPTIONS} staffId={staff.id} />
       <StaffRoleForm currentRole={staff.role} staffId={staff.id} />
+      <StaffIdForm currentStaffCode={staff.staffCode || ""} staffId={staff.id} />
     </section>
 
     <div className="stat-grid" style={{ marginTop: 18 }}>
       <div className="card stat-card"><div className="stat-card-top"><span>Total Jobdesk</span><span className="stat-icon"><Icon name="briefcase" size={15} /></span></div><div className="stat-value">{jobdesks.length}</div><div className="stat-foot">Penugasan aktif</div></div>
       <div className="card stat-card"><div className="stat-card-top"><span>Reports</span><span className="stat-icon"><Icon name="report" size={15} /></span></div><div className="stat-value">{reports.length}</div><div className="stat-foot">Total report tersubmit</div></div>
-      <div className="card stat-card"><div className="stat-card-top"><span>Rata-rata Progress</span><span className="stat-icon"><Icon name="chart" size={15} /></span></div><div className="stat-value">{average}%</div><div className="stat-foot">Dari seluruh jobdesk</div></div>
+      <div className="card stat-card"><div className="stat-card-top"><span>Total Upload</span><span className="stat-icon"><Icon name="chart" size={15} /></span></div><div className="stat-value">{totalUploads}</div><div className="stat-foot">Dari seluruh jobdesk</div></div>
       <div className="card stat-card"><div className="stat-card-top"><span>Role</span><span className="stat-icon"><Icon name="shield" size={15} /></span></div><div className="stat-value" style={{ fontSize: 18 }}>{roleLabel(staff.role)}</div><div className="stat-foot">{staff.position || "Belum ada posisi"}</div></div>
     </div>
 
@@ -52,7 +51,7 @@ export default async function StaffDetailPage({ params }) {
       {jobdesks.length
         ? <div className="table-wrap">
             <table className="data-table">
-              <thead><tr><th>Jobdesk</th><th>Priority</th><th>Progress</th><th>Status</th></tr></thead>
+              <thead><tr><th>Jobdesk</th><th>Priority</th><th>Upload</th><th>Status</th></tr></thead>
               <tbody>
                 {jobdesks.map((jobdesk) => <tr key={jobdesk.id}>
                   <td>
@@ -63,7 +62,7 @@ export default async function StaffDetailPage({ params }) {
                   <td>
                     <div className="mini-progress">
                       <div className="progress-track"><div className="progress-fill" style={{ width: `${jobdesk.progress}%` }} /></div>
-                      <span>{jobdesk.targetCount ? `${jobdesk.approvedCount}/${jobdesk.targetCount} · ${jobdesk.progress}%` : `${jobdesk.progress}%`}</span>
+                      <span>{jobdesk.targetCount ? `${jobdesk.approvedCount}/${jobdesk.targetCount}` : `${jobdesk.uploadCount || 0} upload`}</span>
                     </div>
                   </td>
                   <td><span className={`status ${statusClass(jobdesk.status)}`}>{statusLabel(jobdesk.status)}</span></td>

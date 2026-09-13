@@ -103,7 +103,7 @@ export default function UploadAdminView({ uploads, staffProgress = {} }) {
       const margin = 40;
       const pageWidth = doc.internal.pageSize.getWidth();
       const pageHeight = doc.internal.pageSize.getHeight();
-      const thumbSize = 56;
+      const thumbSize = 78;
       let y = margin;
 
       doc.setFontSize(15);
@@ -127,7 +127,14 @@ export default function UploadAdminView({ uploads, staffProgress = {} }) {
       doc.setTextColor(0);
 
       for (const item of filtered) {
-        if (y + thumbSize + 8 > pageHeight - margin) {
+        const textX = margin + thumbSize + 10;
+        const textWidth = pageWidth - margin - textX;
+        // Catatan/ulasan yang staff tulis saat upload (item.notes) — kalau
+        // ada, dipecah jadi beberapa baris supaya baris tabelnya melar
+        // otomatis mengikuti panjang catatan, bukan terpotong.
+        const noteLines = item.notes ? doc.splitTextToSize(`Catatan: ${item.notes}`, textWidth) : [];
+        const rowHeight = Math.max(thumbSize, 40 + noteLines.length * 10) + 12;
+        if (y + rowHeight > pageHeight - margin) {
           doc.addPage();
           y = margin;
         }
@@ -151,20 +158,29 @@ export default function UploadAdminView({ uploads, staffProgress = {} }) {
           doc.text(item.mimeType?.startsWith("image/") ? "Gagal muat" : "Non-gambar", margin + 6, y + thumbSize / 2, { maxWidth: thumbSize - 12 });
           doc.setTextColor(0);
         }
-        const textX = margin + thumbSize + 10;
-        const textWidth = pageWidth - margin - textX;
         doc.setFontSize(10);
         doc.text(item.fileName || "-", textX, y + 12, { maxWidth: textWidth });
         doc.setFontSize(8.5);
         doc.setTextColor(100);
         doc.text(`${item.userName || "-"} · ${item.typeLabel || "-"} · ${item.jobdeskTitle || "Tanpa jobdesk"}`, textX, y + 27, { maxWidth: textWidth });
         doc.text(`${item.date || "-"} · ${item.approvalStatus || "PENDING"}`, textX, y + 40, { maxWidth: textWidth });
+        if (noteLines.length) {
+          doc.setFontSize(8);
+          doc.setTextColor(70);
+          doc.text(noteLines, textX, y + 53);
+        }
         doc.setTextColor(0);
-        y += thumbSize + 12;
+        y += rowHeight;
       }
 
+      // Kalau lagi difilter per-staff, nama file PDF ikut berganti sesuai
+      // nama staff yang difilter (mis. "ss3o-bukti-upload-tito-...pdf")
+      // supaya begitu di-download, filenya langsung jelas punya siapa —
+      // tidak perlu buka dulu untuk tahu isinya punya siapa.
+      const slugifyFileName = (text) => String(text || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "staff";
+      const staffSuffix = staffFilter !== "all" ? `-${slugifyFileName(staffLabel)}` : "";
       const fileSuffix = dateFrom || dateTo ? `-${dateFrom || "awal"}_${dateTo || "now"}` : "";
-      doc.save(`ss3o-bukti-upload${fileSuffix}.pdf`);
+      doc.save(`ss3o-bukti-upload${staffSuffix}${fileSuffix}.pdf`);
     } finally {
       setExportingPdf(false);
     }

@@ -78,10 +78,14 @@
     "name": "Rizki",
     "email": "rizki@ss3o.com",
     "password": "$2a$10$zjketWmrO5OHX/b0v1fiquZqrBN1f.ERDIAPAjniZz//lqpD/g0my",
-    "role": "STAFF",
-    "position": null,
+    "role": "LEADER",
+    "position": "2nd Leader",
     "isActive": true,
-    "departmentId": "0fea606e-ec93-473e-a222-df79642d841c"
+    "departmentId": "0fea606e-ec93-473e-a222-df79642d841c",
+    "monitoringDepartmentIds": [
+      "0fea606e-ec93-473e-a222-df79642d841c",
+      "f8672b75-5a66-42db-8ccc-bac2f02a86e2"
+    ]
   },
   {
     "id": "cba1f335-671d-4e0a-8afe-ab89d9b632de",
@@ -126,7 +130,7 @@
     "name": "Aldo",
     "email": "aldo@ss3o.com",
     "password": "$2a$10$zjketWmrO5OHX/b0v1fiquZqrBN1f.ERDIAPAjniZz//lqpD/g0my",
-    "role": "ADMIN",
+    "role": "LEADER",
     "position": "2nd Leader",
     "isActive": true,
     "departmentId": "fc9f2566-60bd-4e21-9e19-65d1c034732b"
@@ -222,7 +226,7 @@
     "name": "Ilham",
     "email": "ilham@ss3o.com",
     "password": "$2a$10$zjketWmrO5OHX/b0v1fiquZqrBN1f.ERDIAPAjniZz//lqpD/g0my",
-    "role": "ADMIN",
+    "role": "LEADER",
     "position": "2nd Leader",
     "isActive": true,
     "departmentId": "2e8b7c90-634e-48d9-93f0-54a643122cd9"

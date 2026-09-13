@@ -8,17 +8,39 @@ import Icon from "@/components/Icons";
 import WelcomeOverlay from "@/components/WelcomeOverlay";
 import GlobalSearch from "@/components/GlobalSearch";
 import NotificationBell from "@/components/NotificationBell";
+import { isAdminRole, roleLabel, ROLES } from "@/lib/roles";
 
 const mainNav = [
   { href: "/dashboard", label: "Dashboard", icon: "grid" },
 ];
 
-const adminNav = [
+const adminNavBase = [
   { href: "/staff", label: "Staff", icon: "users" },
   { href: "/departments", label: "Divisi", icon: "building" },
-  { href: "/monitoring", label: "Monitoring", icon: "chart" },
   { href: "/uploads", label: "Kelola Bukti Upload", icon: "image" },
 ];
+
+// Label menu monitoring dibuat per-orang: Aldo (divisi Lastcall) lihat menu
+// "Lastcall", Ilham (divisi Reguler) lihat menu "Reguler", Rizki (pegang 2
+// divisi) lihat menu gabungan "Online & Kasir" — pakai monitoringLabel dari
+// session (lihat resolveMonitoringScope di lib/roles.js), bukan label
+// generik "Monitoring", supaya jelas itu menu monitoring tanggung jawabnya
+// sendiri. Kalau admin tidak terikat ke satu divisi, fallback ke "Monitoring".
+//
+// Role LEADER ("2nd Leader") sengaja cuma dikasih 2 menu total: Dashboard +
+// menu Monitoring di atas — tidak lihat Staff/Divisi/Kelola Bukti Upload,
+// itu tetap khusus role ADMIN penuh.
+function buildAdminNav(user) {
+  // Label per-divisi (mis. "Lastcall"/"Reguler") cuma dipakai untuk role
+  // LEADER (2nd Leader) yang memang cuma pegang satu/dua divisi. Admin penuh
+  // (mis. Dika) selalu lihat label generik "Monitoring", walaupun dia
+  // sendiri tercatat di satu departemen tertentu.
+  if (user?.role === ROLES.LEADER) {
+    const monitoringLabel = user?.monitoringLabel || user?.departmentName || "Monitoring";
+    return [{ href: "/monitoring", label: monitoringLabel, icon: "chart" }];
+  }
+  return [adminNavBase[0], adminNavBase[1], { href: "/monitoring", label: "Monitoring", icon: "chart" }, adminNavBase[2]];
+}
 
 function initials(name = "") {
   return name.split(" ").map((word) => word[0]).join("").slice(0, 2).toUpperCase() || "S";
@@ -48,7 +70,14 @@ export default function AppShell({ children, user, title, welcome = false }) {
   }
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const isAdmin = user?.role === "ADMIN";
+  const isAdmin = isAdminRole(user?.role);
+  // GlobalSearch (redirect ke /jobdesk) dan NotificationBell (feed "Aktivitas
+  // Staff" seluruh toko) itu fitur khusus ADMIN penuh — LEADER ("2nd
+  // Leader") tidak dapat /jobdesk maupun feed notifikasi org-wide, jadi
+  // dibedakan dari `isAdmin` di atas yang cuma mengatur tampilnya menu
+  // Administration (Monitoring) di sidebar.
+  const isStrictAdmin = user?.role === "ADMIN";
+  const adminNav = buildAdminNav(user);
   const active = (href) => pathname === href || (href !== "/dashboard" && pathname.startsWith(`${href}/`));
 
   function NavLink({ item }) {
@@ -94,7 +123,7 @@ export default function AppShell({ children, user, title, welcome = false }) {
         <div className="sidebar-footer">
           <div className="sidebar-user">
             <span className="avatar">{initials(user?.name)}</span>
-            <div className="sidebar-user-copy"><strong>{user?.name}</strong><span>{user?.role === "ADMIN" ? "Administrator" : "Staff"} · {user?.departmentName || "SS3O"}</span><small><i /> Sesi aktif · 8 jam</small></div>
+            <div className="sidebar-user-copy"><strong>{user?.name}</strong><span>{roleLabel(user?.role)} · {user?.departmentName || "SS3O"}</span><small><i /> Sesi aktif · 8 jam</small></div>
           </div>
           <button className="sidebar-logout" onClick={handleLogout}><Icon name="logout" size={15} /><span>Logout session</span></button>
         </div>
@@ -108,12 +137,12 @@ export default function AppShell({ children, user, title, welcome = false }) {
             <div className="breadcrumb"><span>SS3O / </span><strong>{title || "Workspace"}</strong></div>
           </div>
           <div className="topbar-right">
-            <GlobalSearch isAdmin={isAdmin} />
-            <NotificationBell isAdmin={isAdmin} />
+            <GlobalSearch isAdmin={isStrictAdmin} />
+            <NotificationBell isAdmin={isStrictAdmin} />
             <div className="topbar-profile">
               <button aria-expanded={profileOpen} aria-haspopup="menu" className="profile-trigger" onClick={() => setProfileOpen(!profileOpen)} type="button">
                 <span className="avatar">{initials(user?.name)}</span>
-                <span className="topbar-profile-copy"><strong>{user?.name}</strong><span>{user?.role === "ADMIN" ? "Admin" : "Staff"}</span></span>
+                <span className="topbar-profile-copy"><strong>{user?.name}</strong><span>{roleLabel(user?.role)}</span></span>
                 <Icon name="chevron" size={14} />
               </button>
               {profileOpen && <span className="profile-menu"><Link href="/profile" onClick={() => setProfileOpen(false)}><Icon name="user" size={14} /> Profile</Link><button onClick={handleLogout}><Icon name="logout" size={14} /> Logout session</button></span>}
