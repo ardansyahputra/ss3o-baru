@@ -4,34 +4,60 @@ import { useMemo, useState } from "react";
 import Icon from "@/components/Icons";
 import ReviewDrawer from "@/components/ReviewDrawer";
 
-export default function UploadAdminView({ uploads, staffProgress = {}, staffList = [] }) {
+// Ambil gambar dari URL (Vercel Blob) lalu ubah jadi data URL base64 supaya
+// bisa ditempel ke PDF (jsPDF butuh base64/Image, bukan URL langsung).
+async function toDataUrl(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Gagal mengambil gambar");
+  const blob = await response.blob();
+  return await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+export default function UploadAdminView({ uploads, staffProgress = {} }) {
   const [type, setType] = useState("all");
   const [status, setStatus] = useState("all");
-  // Filter tanggal sekarang berupa rentang (dari - sampai) supaya admin bisa
-  // lihat riwayat upload custom, misal 1-5 September, bukan cuma satu hari.
+  // Filter tanggal sekarang berupa RENTANG (dari - sampai), bukan tanggal
+  // tunggal, supaya bisa lihat mis. 1–5 September sekaligus.
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
-  // Filter nama staff supaya admin bisa langsung lihat riwayat upload staff
-  // tertentu saja tanpa harus scroll cari di daftar folder.
-  const [staffId, setStaffId] = useState("all");
+  // Filter nama staff — defaultnya "Semua Staff".
+  const [staffFilter, setStaffFilter] = useState("all");
   const [selected, setSelected] = useState(null);
   // "desc" = upload terbaru dulu, "asc" = upload terlama dulu.
   const [sortOrder, setSortOrder] = useState("desc");
+  const [exportingPdf, setExportingPdf] = useState(false);
   // Salinan lokal dari uploads supaya status approve/revisi/reject bisa
   // langsung ter-update di daftar folder tanpa perlu reload halaman.
   const [items, setItems] = useState(uploads);
 
-  // Daftar staff untuk dropdown filter — gabungkan staffList (semua staff
-  // aktif, walau belum pernah upload) dengan nama yang muncul di uploads,
-  // supaya tetap lengkap walau staffList tidak dikirim dari parent.
-  const staffFilterOptions = useMemo(() => {
+  const staffOptions = useMemo(() => {
     const map = new Map();
-    for (const staff of staffList) map.set(staff.id, staff.name);
-    for (const item of items) if (item.userId && !map.has(item.userId)) map.set(item.userId, item.userName);
-    return [...map.entries()].map(([id, name]) => ({ id, name })).sort((a, b) => a.name.localeCompare(b.name));
-  }, [staffList, items]);
+    items.forEach((item) => { if (item.userId) map.set(item.userId, item.userName); });
+    return [...map.entries()].sort((a, b) => (a[1] || "").localeCompare(b[1] || ""));
+  }, [items]);
 
-  const filtered = useMemo(() => items.filter((item) => (type === "all" || item.type === type) && (status === "all" || item.approvalStatus === status) && (!dateFrom || (item.date || "") >= dateFrom) && (!dateTo || (item.date || "") <= dateTo) && (staffId === "all" || item.userId === staffId)), [items, type, status, dateFrom, dateTo, staffId]);
+  const filtered = useMemo(() => items.filter((item) =>
+    (type === "all" || item.type === type) &&
+    (status === "all" || item.approvalStatus === status) &&
+    (!dateFrom || (item.date && item.date >= dateFrom)) &&
+    (!dateTo || (item.date && item.date <= dateTo)) &&
+    (staffFilter === "all" || item.userId === staffFilter)
+  ), [items, type, status, dateFrom, dateTo, staffFilter]);
+
+  const hasActiveFilters = type !== "all" || status !== "all" || dateFrom || dateTo || staffFilter !== "all";
+
+  function resetFilters() {
+    setType("all");
+    setStatus("all");
+    setDateFrom("");
+    setDateTo("");
+    setStaffFilter("all");
+  }
 
   // Kelompokkan berkas per staff jadi "folder" — supaya daftar tidak
   // memanjang satu-satu per file. Admin cukup pencet nama staff (mis.
@@ -66,6 +92,84 @@ export default function UploadAdminView({ uploads, staffProgress = {}, staffList
     URL.revokeObjectURL(link.href);
   }
 
+  // Export PDF — mengikuti filter yang sedang aktif (jenis, status, rentang
+  // tanggal, staff) dan menyertakan thumbnail gambar bukti upload.
+  async function exportPdf() {
+    if (exportingPdf) return;
+    setExportingPdf(true);
+    try {
+      const { jsPDF } = await import("jspdf");
+      const doc = new jsPDF({ unit: "pt", format: "a4" });
+      const margin = 40;
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+      const thumbSize = 56;
+      let y = margin;
+
+      doc.setFontSize(15);
+      doc.setTextColor(20);
+      doc.text("SS3O — Laporan Bukti Upload", margin, y);
+      y += 18;
+
+      doc.setFontSize(9.5);
+      doc.setTextColor(110);
+      const staffLabel = staffFilter === "all" ? "Semua Staff" : (staffOptions.find(([id]) => id === staffFilter)?.[1] || "-");
+      const rangeLabel = dateFrom || dateTo ? `${dateFrom || "awal"} s/d ${dateTo || "sekarang"}` : "Semua tanggal";
+      doc.text(`Jenis: ${type === "all" ? "Semua jenis" : type} · Status: ${status === "all" ? "Semua status" : status}`, margin, y);
+      y += 13;
+      doc.text(`Staff: ${staffLabel} · Tanggal: ${rangeLabel}`, margin, y);
+      y += 13;
+      doc.text(`Total: ${filtered.length} berkas`, margin, y);
+      y += 18;
+      doc.setDrawColor(220);
+      doc.line(margin, y, pageWidth - margin, y);
+      y += 14;
+      doc.setTextColor(0);
+
+      for (const item of filtered) {
+        if (y + thumbSize + 8 > pageHeight - margin) {
+          doc.addPage();
+          y = margin;
+        }
+        let imgAdded = false;
+        if (item.filePath && item.mimeType?.startsWith("image/")) {
+          try {
+            const dataUrl = await toDataUrl(item.filePath);
+            const format = /data:image\/(png)/i.test(dataUrl) ? "PNG" : "JPEG";
+            doc.addImage(dataUrl, format, margin, y, thumbSize, thumbSize);
+            imgAdded = true;
+          } catch {
+            // Kalau gambar gagal diambil (mis. bukan gambar / CORS), lanjut
+            // tanpa thumbnail — jangan gagalkan seluruh export.
+          }
+        }
+        if (!imgAdded) {
+          doc.setDrawColor(225);
+          doc.rect(margin, y, thumbSize, thumbSize);
+          doc.setFontSize(7.5);
+          doc.setTextColor(160);
+          doc.text(item.mimeType?.startsWith("image/") ? "Gagal muat" : "Non-gambar", margin + 6, y + thumbSize / 2, { maxWidth: thumbSize - 12 });
+          doc.setTextColor(0);
+        }
+        const textX = margin + thumbSize + 10;
+        const textWidth = pageWidth - margin - textX;
+        doc.setFontSize(10);
+        doc.text(item.fileName || "-", textX, y + 12, { maxWidth: textWidth });
+        doc.setFontSize(8.5);
+        doc.setTextColor(100);
+        doc.text(`${item.userName || "-"} · ${item.typeLabel || "-"} · ${item.jobdeskTitle || "Tanpa jobdesk"}`, textX, y + 27, { maxWidth: textWidth });
+        doc.text(`${item.date || "-"} · ${item.approvalStatus || "PENDING"}`, textX, y + 40, { maxWidth: textWidth });
+        doc.setTextColor(0);
+        y += thumbSize + 12;
+      }
+
+      const fileSuffix = dateFrom || dateTo ? `-${dateFrom || "awal"}_${dateTo || "now"}` : "";
+      doc.save(`ss3o-bukti-upload${fileSuffix}.pdf`);
+    } finally {
+      setExportingPdf(false);
+    }
+  }
+
   function reviewed(change) {
     setItems((current) => current.map((item) => item.id === change.targetId ? { ...item, approvalStatus: change.action } : item));
     setSelected((current) => current ? { ...current, uploads: current.uploads.map((upload) => upload.id === change.targetId ? { ...upload, approvalStatus: change.action } : upload) } : current);
@@ -75,12 +179,19 @@ export default function UploadAdminView({ uploads, staffProgress = {}, staffList
     <div className="filter-bar">
       <select className="select" value={type} onChange={(event) => setType(event.target.value)}><option value="all">Semua jenis upload</option><option value="work">Hasil Kerja</option><option value="lxp">LXP</option><option value="dsr">DSR Staff</option></select>
       <select className="select" value={status} onChange={(event) => setStatus(event.target.value)}><option value="all">Semua status</option><option value="PENDING">Menunggu Review</option><option value="APPROVED">Disetujui</option><option value="REJECTED">Ditolak</option></select>
-      <select aria-label="Filter nama staff" className="select" value={staffId} onChange={(event) => setStaffId(event.target.value)}><option value="all">Semua Staff</option>{staffFilterOptions.map((staff) => <option key={staff.id} value={staff.id}>{staff.name}</option>)}</select>
-      <label style={{ alignItems: "center", color: "var(--muted)", display: "flex", fontSize: 11, gap: 6 }}>Dari <input aria-label="Dari tanggal" className="field" type="date" value={dateFrom} max={dateTo || undefined} onChange={(event) => setDateFrom(event.target.value)} /></label>
-      <label style={{ alignItems: "center", color: "var(--muted)", display: "flex", fontSize: 11, gap: 6 }}>Sampai <input aria-label="Sampai tanggal" className="field" type="date" value={dateTo} min={dateFrom || undefined} onChange={(event) => setDateTo(event.target.value)} /></label>
-      {(dateFrom || dateTo) && <button className="button button-ghost" onClick={() => { setDateFrom(""); setDateTo(""); }} type="button">Reset tanggal</button>}
+      <select aria-label="Filter staff" className="select" value={staffFilter} onChange={(event) => setStaffFilter(event.target.value)}><option value="all">Semua Staff</option>{staffOptions.map(([id, name]) => <option key={id} value={id}>{name}</option>)}</select>
+      <label className="field-inline" style={{ alignItems: "center", display: "flex", gap: 6 }}>
+        <span style={{ color: "var(--muted)", fontSize: 11 }}>Dari</span>
+        <input aria-label="Filter tanggal dari" className="field" type="date" value={dateFrom} onChange={(event) => setDateFrom(event.target.value)} />
+      </label>
+      <label className="field-inline" style={{ alignItems: "center", display: "flex", gap: 6 }}>
+        <span style={{ color: "var(--muted)", fontSize: 11 }}>Sampai</span>
+        <input aria-label="Filter tanggal sampai" className="field" type="date" value={dateTo} onChange={(event) => setDateTo(event.target.value)} />
+      </label>
+      {hasActiveFilters && <button className="button button-ghost" onClick={resetFilters} type="button">Reset</button>}
       <span style={{ color: "var(--muted)", fontSize: 11, marginLeft: "auto" }}>{folders.length} staff · {filtered.length} berkas</span>
-      <button className="button button-secondary" onClick={exportSummary}><Icon name="file" size={14} /> Export Summary Report</button>
+      <button className="button button-secondary" onClick={exportSummary} type="button"><Icon name="file" size={14} /> Export CSV</button>
+      <button className="button button-primary" disabled={exportingPdf || !filtered.length} onClick={exportPdf} type="button"><Icon name="file" size={14} /> {exportingPdf ? "Membuat PDF..." : "Export PDF"}</button>
     </div>
     {folders.length
       ? <div className="table-wrap">
