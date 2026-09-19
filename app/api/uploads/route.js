@@ -2,31 +2,11 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import db from "@/lib/db";
+import { storeFile } from "@/lib/storage";
 import path from "path";
 import crypto from "crypto";
 
 const tables = { work: "work_uploads", lxp: "lxp_uploads", dsr: "dsr_uploads" };
-
-// Kalau BLOB_READ_WRITE_TOKEN ada (otomatis di-inject Vercel begitu project
-// disambungkan ke Vercel Blob dari dashboard), file bukti kerja disimpan di
-// Vercel Blob (persisten). Kalau tidak ada (dev lokal di laptop), tetap
-// ditulis ke public/uploads seperti sebelumnya. Sama seperti lib/db.js —
-// filesystem Vercel read-only & sementara saat runtime, jadi fs.writeFile
-// biasa TIDAK bisa dipakai untuk simpan file di produksi.
-const USE_BLOB = Boolean(process.env.BLOB_READ_WRITE_TOKEN);
-
-async function storeFile(file, storedName) {
-  if (USE_BLOB) {
-    const { put } = await import("@vercel/blob");
-    const blob = await put(`uploads/${storedName}`, file, { access: "public", addRandomSuffix: false });
-    return blob.url;
-  }
-  const fs = await import("fs/promises");
-  const uploadsDir = path.join(process.cwd(), "public", "uploads");
-  await fs.mkdir(uploadsDir, { recursive: true });
-  await fs.writeFile(path.join(uploadsDir, storedName), Buffer.from(await file.arrayBuffer()));
-  return `/uploads/${storedName}`;
-}
 
 export async function POST(request) {
   try {
