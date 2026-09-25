@@ -9,12 +9,20 @@ import Icon from "@/components/Icons";
 import StaffPositionForm from "@/components/StaffPositionForm";
 import StaffRoleForm from "@/components/StaffRoleForm";
 import StaffIdForm from "@/components/StaffIdForm";
+import StaffDepartmentForm from "@/components/StaffDepartmentForm";
 
 export default async function StaffDetailPage({ params }) {
   const user = await requireAdmin();
   const staff = await db.find("users", (item) => item.id === params.id);
   if (!staff) notFound();
-  const department = await db.find("departments", (item) => item.id === staff.departmentId);
+  const departments = await db.all("departments");
+  const department = departments.find((item) => item.id === staff.departmentId) || null;
+  // Staff lama (dibuat sebelum fitur multi-divisi) belum punya field
+  // `departmentIds` sama sekali — dianggap cuma anggota divisi aktifnya
+  // sendiri (kalau ada) supaya form multi-divisi tetap tampil benar.
+  const departmentIds = Array.isArray(staff.departmentIds) && staff.departmentIds.length
+    ? staff.departmentIds
+    : (staff.departmentId ? [staff.departmentId] : []);
   const jobdesks = await getStaffJobdesks(staff.id);
   const reports = await db.filter("daily_reports", (item) => item.userId === staff.id);
   const isActive = staff.isActive !== false;
@@ -37,6 +45,11 @@ export default async function StaffDetailPage({ params }) {
       <StaffPositionForm currentPosition={staff.position || "Staff"} options={POSITION_OPTIONS} staffId={staff.id} />
       <StaffRoleForm currentRole={staff.role} staffId={staff.id} />
       <StaffIdForm currentStaffCode={staff.staffCode || ""} staffId={staff.id} />
+    </section>
+
+    <section className="card section-card" style={{ marginTop: 18 }}>
+      <div className="card-heading"><div><h2>Divisi Staff</h2><p>Tugaskan staff ini ke lebih dari satu divisi, lalu tentukan divisi mana yang sedang aktif.</p></div><Icon name="building" size={17} /></div>
+      <StaffDepartmentForm currentDepartmentId={staff.departmentId || ""} currentDepartmentIds={departmentIds} departments={departments} staffId={staff.id} />
     </section>
 
     <div className="stat-grid" style={{ marginTop: 18 }}>

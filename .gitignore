@@ -1,19 +1,23 @@
-node_modules/
-.next/
-.vercel/
+# Dependencies
+/node_modules
+
+# Next.js build output
+/.next
+/out
+
+# Env files — JANGAN pernah di-commit, isinya token/password database & blob
 .env
 .env.local
-.env*.local
-*.log
+.env.*.local
+!.env.example
 
-# data/departments.json, users.json, jobdesks.json, kpis.json, dan
-# jobdesk_source.json SENGAJA tetap ikut di-commit — dipakai scripts/seed.js
-# sebagai snapshot sumber untuk mengisi Neon pertama kali. Yang di-ignore di
-# bawah ini cuma data runtime lokal (kalau kebetulan pernah jalan tanpa
-# POSTGRES_URL) supaya tidak ikut ter-commit.
-data/work_uploads.json
-data/lxp_uploads.json
-data/dsr_uploads.json
-data/daily_reports.json
-data/daily_progress.json
-data/files/
+# File upload lokal (dev tanpa Blob) — jangan commit hasil upload staff.
+# Catatan: data/*.json SENGAJA TIDAK di-gitignore — file itu snapshot seed
+# (lihat lib/seed.js), harus tetap ke-commit supaya deploy baru/database
+# kosong ada sumber data buat di-seed ulang.
+/public/uploads
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*

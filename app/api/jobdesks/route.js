@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import db from "@/lib/db";
+import { departmentMembership } from "@/lib/roles";
 
 const PRIORITIES = ["URGENT", "HIGH", "MEDIUM", "LOW"];
 
@@ -26,9 +27,14 @@ export async function POST(request) {
   // userId === "ALL" — opsi "Semua Staff" dari form Tambah Jobdesk: jobdesk
   // yang sama ditugaskan ke setiap staff aktif di departemen yang dipilih,
   // masing-masing dapat baris jobdesk (dan progress) sendiri-sendiri.
+  // Staff multi-divisi (mis. ditugaskan di Online DAN Kasir) otomatis ikut
+  // kena kalau salah satu divisinya cocok — bukan cuma yang divisi
+  // aktifnya persis departemen ini — supaya jobdesk Kasir tetap masuk ke
+  // staff itu meski divisi aktifnya lagi di-switch ke Online, atau
+  // sebaliknya.
   if (body.userId === "ALL") {
     if (!body.departmentId) return NextResponse.json({ error: "Pilih departemen dulu untuk menugaskan ke Semua Staff." }, { status: 400 });
-    const staffList = (await db.all("users")).filter((item) => item.isActive !== false && item.departmentId === body.departmentId);
+    const staffList = (await db.all("users")).filter((item) => item.isActive !== false && departmentMembership(item).includes(body.departmentId));
     if (!staffList.length) return NextResponse.json({ error: "Tidak ada staff aktif di departemen ini." }, { status: 404 });
     const records = [];
     for (const staff of staffList) {

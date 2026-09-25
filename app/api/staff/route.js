@@ -11,10 +11,6 @@ import { POSITION_OPTIONS } from "@/lib/positions";
 // primary key di seluruh relasi (jobdesk, upload, report, session login).
 // Jadi staffCode aman diubah kapan saja tanpa merusak relasi data staff itu
 // di tabel lain — beda dengan `id` yang tidak boleh diubah sama sekali.
-function slugifyLocalPart(text) {
-  return String(text || "").toLowerCase().replace(/[^a-z0-9]+/g, "").slice(0, 24);
-}
-
 function randomPassword() {
   // Password sementara yang mudah dibacakan admin ke staff baru (huruf besar
   // dihindari biar tidak rancu di HP), staff wajib disarankan ganti sendiri
@@ -30,6 +26,11 @@ export async function POST(request) {
 
   const body = await request.json().catch(() => ({}));
   const name = typeof body.name === "string" ? body.name.trim() : "";
+  // Struktur pembuatan akun disederhanakan jadi Nama + Email saja —
+  // ID staff, department, posisi, dan template jobdesk sifatnya OPSIONAL,
+  // bisa langsung diisi di sini kalau mau, atau diatur belakangan dari
+  // halaman detail staff (posisi/ID staff/role) & form multi-divisi.
+  const emailInput = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
   const staffCode = typeof body.staffCode === "string" ? body.staffCode.trim() : "";
   const departmentId = typeof body.departmentId === "string" && body.departmentId ? body.departmentId : null;
   const position = typeof body.position === "string" && POSITION_OPTIONS.includes(body.position) ? body.position : "Staff";
@@ -40,11 +41,20 @@ export async function POST(request) {
   const templateStaffId = typeof body.templateStaffId === "string" && body.templateStaffId ? body.templateStaffId : null;
 
   if (!name) return NextResponse.json({ error: "Nama staff wajib diisi." }, { status: 400 });
-  if (!staffCode) return NextResponse.json({ error: "ID staff wajib diisi." }, { status: 400 });
+  if (!emailInput) return NextResponse.json({ error: "Email staff wajib diisi." }, { status: 400 });
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput)) {
+    return NextResponse.json({ error: "Format email tidak valid." }, { status: 400 });
+  }
 
   const users = await db.all("users");
-  const codeTaken = users.some((item) => (item.staffCode || "").toLowerCase() === staffCode.toLowerCase());
-  if (codeTaken) return NextResponse.json({ error: `ID staff "${staffCode}" sudah dipakai staff lain.` }, { status: 400 });
+
+  const emailTaken = users.some((item) => (item.email || "").toLowerCase() === emailInput);
+  if (emailTaken) return NextResponse.json({ error: `Email "${emailInput}" sudah dipakai staff lain.` }, { status: 400 });
+
+  if (staffCode) {
+    const codeTaken = users.some((item) => (item.staffCode || "").toLowerCase() === staffCode.toLowerCase());
+    if (codeTaken) return NextResponse.json({ error: `ID staff "${staffCode}" sudah dipakai staff lain.` }, { status: 400 });
+  }
 
   if (departmentId) {
     const department = await db.find("departments", (item) => item.id === departmentId);
@@ -57,17 +67,7 @@ export async function POST(request) {
     if (!templateStaff) return NextResponse.json({ error: "Staff contoh untuk jobdesk tidak ditemukan." }, { status: 400 });
   }
 
-  // Email login dibuat otomatis dari ID staff (fallback ke nama kalau ID
-  // staff tidak punya karakter huruf/angka sama sekali), lalu ditambah
-  // angka di belakang kalau ternyata sudah kepakai.
-  const base = slugifyLocalPart(staffCode) || slugifyLocalPart(name) || "staff";
-  let email = `${base}@ss3o.com`;
-  let attempt = 1;
-  while (users.some((item) => item.email === email)) {
-    attempt += 1;
-    email = `${base}${attempt}@ss3o.com`;
-  }
-
+  const email = emailInput;
   const generatedPassword = randomPassword();
   const passwordHash = await bcrypt.hash(generatedPassword, 12);
 
@@ -77,9 +77,10 @@ export async function POST(request) {
     password: passwordHash,
     role: "STAFF",
     position,
-    staffCode,
+    staffCode: staffCode || null,
     isActive: true,
-    departmentId
+    departmentId,
+    departmentIds: departmentId ? [departmentId] : []
   });
 
   // Kloning jobdesk dari staff contoh (kalau dipilih) — masing-masing
@@ -118,7 +119,7 @@ export async function POST(request) {
 
   return NextResponse.json({
     ok: true,
-    staff: { id: record.id, name: record.name, email: record.email, staffCode: record.staffCode, position: record.position, departmentId: record.departmentId, role: record.role, isActive: true },
+    staff: { id: record.id, name: record.name, email: record.email, staffCode: record.staffCode, position: record.position, departmentId: record.departmentId, departmentIds: record.departmentIds, role: record.role, isActive: true },
     generatedPassword,
     clonedJobdeskCount,
     templateStaffName: templateStaff?.name || null

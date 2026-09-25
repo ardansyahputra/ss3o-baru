@@ -3,9 +3,9 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Icon from "@/components/Icons";
-import { roleLabel } from "@/lib/roles";
+import { roleLabel, departmentMembership } from "@/lib/roles";
 
-export default function JobdeskForm({ departments, users }) {
+export default function JobdeskForm({ departments, users, existingJobdesks = [] }) {
   const router = useRouter();
   const [form, setForm] = useState({
     title: "",
@@ -19,9 +19,29 @@ export default function JobdeskForm({ departments, users }) {
   const [message, setMessage] = useState("");
 
   const staffOptions = useMemo(
-    () => users.filter((item) => !form.departmentId || item.departmentId === form.departmentId),
+    () => users.filter((item) => !form.departmentId || departmentMembership(item).includes(form.departmentId)),
     [users, form.departmentId]
   );
+
+  // Judul jobdesk yang sudah pernah dipakai di divisi yang lagi dipilih —
+  // ditawarkan lewat <datalist> supaya admin tinggal PILIH judul yang sudah
+  // ada (mis. "Report Malam") daripada ketik ulang manual tiap kali bikin
+  // jobdesk baru untuk staff lain di divisi yang sama. Tetap bisa ketik
+  // judul baru bebas kalau memang belum ada di daftar.
+  const titleSuggestions = useMemo(() => {
+    if (!form.departmentId) return [];
+    const seen = new Set();
+    const list = [];
+    for (const item of existingJobdesks) {
+      if (item.departmentId !== form.departmentId) continue;
+      const title = (item.title || "").trim();
+      const key = title.toLowerCase();
+      if (!title || seen.has(key)) continue;
+      seen.add(key);
+      list.push(title);
+    }
+    return list.sort((a, b) => a.localeCompare(b));
+  }, [existingJobdesks, form.departmentId]);
 
   function update(name, value) {
     setForm((current) => ({ ...current, [name]: value }));
@@ -29,7 +49,7 @@ export default function JobdeskForm({ departments, users }) {
 
   function updateDepartment(departmentId) {
     setForm((current) => {
-      const stillValid = users.some((item) => item.id === current.userId && item.departmentId === departmentId);
+      const stillValid = users.some((item) => item.id === current.userId && departmentMembership(item).includes(departmentId));
       return { ...current, departmentId, userId: stillValid ? current.userId : "" };
     });
   }
@@ -55,7 +75,9 @@ export default function JobdeskForm({ departments, users }) {
       <div className="form-grid">
         <div className="form-group full">
           <label className="form-label">Nama jobdesk</label>
-          <input className="field form-control" placeholder="Contoh: Report Malam / Closing Kasir" value={form.title} onChange={(event) => update("title", event.target.value)} required />
+          <input className="field form-control" list="jobdesk-title-suggestions" placeholder="Contoh: Report Malam / Closing Kasir" value={form.title} onChange={(event) => update("title", event.target.value)} required />
+          <datalist id="jobdesk-title-suggestions">{titleSuggestions.map((title) => <option key={title} value={title} />)}</datalist>
+          {form.departmentId && titleSuggestions.length > 0 && <small style={{ color: "var(--muted)" }}>Ketik untuk lihat {titleSuggestions.length} jobdesk yang sudah ada di divisi ini, atau ketik judul baru.</small>}
         </div>
         <div className="form-group">
           <label className="form-label">Divisi / Departemen</label>
