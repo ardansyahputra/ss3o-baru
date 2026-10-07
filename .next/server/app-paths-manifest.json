@@ -1,8 +1,8 @@
 {
-  "/staff/page": "app/staff/page.js",
-  "/api/notifications/route": "app/api/notifications/route.js",
-  "/staff/[id]/page": "app/staff/[id]/page.js",
-  "/api/staff/route": "app/api/staff/route.js",
+  "/login/page": "app/login/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/staff/[id]/route": "app/api/staff/[id]/route.js"
+  "/api/reviews/route": "app/api/reviews/route.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/uploads/page": "app/uploads/page.js",
+  "/api/notifications/route": "app/api/notifications/route.js"
 }

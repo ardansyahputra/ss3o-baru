@@ -16,7 +16,46 @@ export default function ReviewDrawer({ person, onClose, onReviewed }) {
   // reject langsung di kartu bukti upload tersebut (bukan di form).
   const [rejectingUploadId, setRejectingUploadId] = useState(null);
   const [rejectNote, setRejectNote] = useState("");
+  // Checklist bukti upload untuk bulk approve (id upload yang dicentang).
+  const [checked, setChecked] = useState(() => new Set());
   if (!person) return null;
+
+  // Hanya berkas yang belum disetujui yang bisa dicentang.
+  const selectableIds = (person.uploads || []).filter((item) => item.approvalStatus !== "APPROVED").map((item) => item.id);
+  const checkedIds = selectableIds.filter((id) => checked.has(id));
+  const allChecked = selectableIds.length > 0 && checkedIds.length === selectableIds.length;
+
+  function toggleOne(id) {
+    setChecked((current) => {
+      const next = new Set(current);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  }
+
+  function toggleAll() {
+    setChecked(allChecked ? new Set() : new Set(selectableIds));
+  }
+
+  async function approveChecked() {
+    if (!checkedIds.length || saving) return;
+    setSaving(true);
+    try {
+      const response = await fetch("/api/reviews", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ targetIds: checkedIds, action: "APPROVED" }) });
+      const result = await response.json().catch(() => ({}));
+      if (response.ok) {
+        onReviewed?.({ targetIds: checkedIds, action: "APPROVED" });
+        setChecked(new Set());
+        setSuccessResult({ action: "APPROVED", targetName: `${checkedIds.length} berkas disetujui sekaligus` });
+      } else {
+        setToast({ type: "error", message: result.error || "Approve massal gagal disimpan." });
+      }
+    } catch {
+      setToast({ type: "error", message: "Tidak dapat terhubung ke server. Coba lagi." });
+    } finally {
+      setSaving(false);
+    }
+  }
 
   async function review(targetType, targetId, action, targetName, notesOverride) {
     const noteToSend = notesOverride !== undefined ? notesOverride : notes;
@@ -61,9 +100,14 @@ export default function ReviewDrawer({ person, onClose, onReviewed }) {
       <div className="drawer-summary"><div><span>Jobdesk</span><strong>{person.jobs?.length || 0}</strong></div><div><span>Uploads</span><strong>{person.uploadCount ?? person.uploads?.length ?? 0}</strong></div></div>
       <section className="drawer-section"><div className="drawer-section-title"><h3>Jobdesk hari ini</h3><span>{person.jobs?.length || 0} item</span></div>{person.jobs?.length ? person.jobs.map((job) => <div className="drawer-job" key={job.id}><span className={`priority priority-${job.priority}`}>{job.priority}</span><div><strong>{job.title}</strong><div className="mini-progress"><div className="progress-track"><div className="progress-fill" style={{ width: `${job.progress}%` }} /></div><span>{job.uploadCount ?? 0} upload · {job.statusText}</span></div></div></div>) : <p className="drawer-muted">Belum ada jobdesk.</p>}</section>
       <section className="drawer-section"><div className="drawer-section-title"><h3>Catatan staff</h3>{person.report && <span>{person.report.date}</span>}</div>{person.report ? <div className="report-note"><p>{person.report.report}</p>{person.report.notes && <small>{person.report.notes}</small>}</div> : <p className="drawer-muted">Belum ada report yang disubmit.</p>}</section>
-      <section className="drawer-section"><div className="drawer-section-title"><h3>Bukti upload</h3><span>{person.uploads?.length || 0} berkas</span></div>{person.uploads?.length ? <div className="proof-grid">{person.uploads.map((upload) => {
+      <section className="drawer-section"><div className="drawer-section-title"><h3>Bukti upload</h3><span>{person.uploads?.length || 0} berkas</span></div>{selectableIds.length > 0 && <div className="bulk-bar">
+        <label className="check-label"><input type="checkbox" checked={allChecked} onChange={toggleAll} disabled={saving} /> Pilih semua ({selectableIds.length})</label>
+        <button className="proof-action proof-action-approve bulk-approve-btn" type="button" onClick={approveChecked} disabled={saving || !checkedIds.length}><Icon name="check" size={12} /> Approve terpilih{checkedIds.length ? ` (${checkedIds.length})` : ""}</button>
+      </div>}{person.uploads?.length ? <div className="proof-grid">{person.uploads.map((upload) => {
         const isImage = upload.mimeType?.startsWith("image/") && upload.filePath;
-        return <div className="proof-card" key={upload.id}>
+        const selectable = upload.approvalStatus !== "APPROVED";
+        return <div className={`proof-card${checked.has(upload.id) && selectable ? " proof-card-checked" : ""}`} key={upload.id}>
+          {selectable && <label className="proof-check" title="Pilih untuk approve massal"><input aria-label={`Pilih ${upload.fileName}`} type="checkbox" checked={checked.has(upload.id)} onChange={() => toggleOne(upload.id)} disabled={saving} /></label>}
           {isImage
             ? <div className="proof-thumb"><img alt={upload.fileName} src={upload.filePath} /><ImagePreview src={upload.filePath} label={upload.fileName} caption={`${upload.typeLabel} · ${upload.jobdeskTitle || "Tanpa jobdesk"}`} /></div>
             : <div className="proof-file"><Icon name="file" size={25} /><strong>{upload.fileName}</strong><span>{upload.typeLabel} · {upload.source || "Perangkat"} · {upload.jobdeskTitle || "Tanpa jobdesk"} · {Math.ceil((upload.size || 0) / 1024)} KB</span></div>}

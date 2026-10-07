@@ -187,8 +187,57 @@ export default function UploadAdminView({ uploads, staffProgress = {} }) {
   }
 
   function reviewed(change) {
-    setItems((current) => current.map((item) => item.id === change.targetId ? { ...item, approvalStatus: change.action } : item));
-    setSelected((current) => current ? { ...current, uploads: current.uploads.map((upload) => upload.id === change.targetId ? { ...upload, approvalStatus: change.action } : upload) } : current);
+    // Mendukung review tunggal (targetId) maupun bulk approve (targetIds).
+    const ids = new Set(change.targetIds || [change.targetId]);
+    setItems((current) => current.map((item) => ids.has(item.id) ? { ...item, approvalStatus: change.action } : item));
+    setSelected((current) => current ? { ...current, uploads: current.uploads.map((upload) => ids.has(upload.id) ? { ...upload, approvalStatus: change.action } : upload) } : current);
+  }
+
+  // ── Bulk approve dari daftar staff ──
+  // Centang staff (1-1 atau semua) lalu approve seluruh berkas yang masih
+  // menunggu review milik staff tersebut dalam sekali klik.
+  const [checkedFolders, setCheckedFolders] = useState(() => new Set());
+  const [bulkSaving, setBulkSaving] = useState(false);
+  const [bulkMessage, setBulkMessage] = useState(null);
+
+  const pendingIdsOf = (folder) => folder.uploads.filter((item) => item.approvalStatus === "PENDING").map((item) => item.id);
+  const approvableFolders = folders.filter((folder) => pendingIdsOf(folder).length > 0);
+  const checkedApprovable = approvableFolders.filter((folder) => checkedFolders.has(folder.key));
+  const checkedPendingIds = checkedApprovable.flatMap(pendingIdsOf);
+  const allFoldersChecked = approvableFolders.length > 0 && checkedApprovable.length === approvableFolders.length;
+
+  function toggleFolder(key) {
+    setCheckedFolders((current) => {
+      const next = new Set(current);
+      if (next.has(key)) next.delete(key); else next.add(key);
+      return next;
+    });
+  }
+
+  function toggleAllFolders() {
+    setCheckedFolders(allFoldersChecked ? new Set() : new Set(approvableFolders.map((folder) => folder.key)));
+  }
+
+  async function approveCheckedFolders() {
+    if (!checkedPendingIds.length || bulkSaving) return;
+    if (!window.confirm(`Approve ${checkedPendingIds.length} berkas menunggu dari ${checkedApprovable.length} staff?`)) return;
+    setBulkSaving(true);
+    setBulkMessage(null);
+    try {
+      const response = await fetch("/api/reviews", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ targetIds: checkedPendingIds, action: "APPROVED" }) });
+      const result = await response.json().catch(() => ({}));
+      if (response.ok) {
+        reviewed({ targetIds: checkedPendingIds, action: "APPROVED" });
+        setCheckedFolders(new Set());
+        setBulkMessage({ ok: true, text: `${checkedPendingIds.length} berkas berhasil disetujui.` });
+      } else {
+        setBulkMessage({ ok: false, text: result.error || "Approve massal gagal." });
+      }
+    } catch {
+      setBulkMessage({ ok: false, text: "Tidak dapat terhubung ke server. Coba lagi." });
+    } finally {
+      setBulkSaving(false);
+    }
   }
 
   return <div className="card section-card">
@@ -209,15 +258,25 @@ export default function UploadAdminView({ uploads, staffProgress = {} }) {
       <button className="button button-secondary" onClick={exportSummary} type="button"><Icon name="file" size={14} /> Export CSV</button>
       <button className="button button-primary" disabled={exportingPdf || !filtered.length} onClick={exportPdf} type="button"><Icon name="file" size={14} /> {exportingPdf ? "Membuat PDF..." : "Export PDF"}</button>
     </div>
+    {(checkedApprovable.length > 0 || bulkMessage) && <div className={`bulk-bar bulk-bar-main${bulkMessage && !checkedApprovable.length ? (bulkMessage.ok ? " bulk-bar-ok" : " bulk-bar-err") : ""}`}>
+      {checkedApprovable.length > 0
+        ? <><span><strong>{checkedApprovable.length}</strong> staff dipilih · <strong>{checkedPendingIds.length}</strong> berkas menunggu</span>
+            <span className="bulk-bar-actions">
+              <button className="button button-ghost" type="button" onClick={() => setCheckedFolders(new Set())} disabled={bulkSaving}>Batal</button>
+              <button className="proof-action proof-action-approve bulk-approve-btn" type="button" onClick={approveCheckedFolders} disabled={bulkSaving}><Icon name="check" size={12} /> {bulkSaving ? "Menyimpan..." : "Approve semua terpilih"}</button>
+            </span></>
+        : <span>{bulkMessage.text}</span>}
+    </div>}
     {folders.length
       ? <div className="table-wrap">
           <table className="data-table">
-            <thead><tr><th>Staff</th><th>Jenis</th><th><button className="sort-header" onClick={() => setSortOrder((current) => current === "desc" ? "asc" : "desc")} type="button">Upload Terakhir <Icon name="arrow" size={12} className={sortOrder === "asc" ? "sort-icon sort-asc" : "sort-icon"} /></button></th><th>Jumlah Berkas</th><th>Aksi</th></tr></thead>
+            <thead><tr><th className="check-col"><input aria-label="Pilih semua staff yang punya berkas menunggu" type="checkbox" checked={allFoldersChecked} onChange={toggleAllFolders} disabled={!approvableFolders.length || bulkSaving} /></th><th>Staff</th><th>Jenis</th><th><button className="sort-header" onClick={() => setSortOrder((current) => current === "desc" ? "asc" : "desc")} type="button">Upload Terakhir <Icon name="arrow" size={12} className={sortOrder === "asc" ? "sort-icon sort-asc" : "sort-icon"} /></button></th><th>Jumlah Berkas</th><th>Aksi</th></tr></thead>
             <tbody>
               {folders.map((folder) => {
                 const pendingCount = folder.uploads.filter((item) => item.approvalStatus === "PENDING").length;
                 const typeLabels = [...new Set(folder.uploads.map((item) => item.typeLabel))];
-                return <tr key={folder.key}>
+                return <tr key={folder.key} className={checkedFolders.has(folder.key) && pendingCount ? "row-checked" : undefined}>
+                  <td className="check-col"><input aria-label={`Pilih ${folder.name}`} type="checkbox" checked={pendingCount > 0 && checkedFolders.has(folder.key)} onChange={() => toggleFolder(folder.key)} disabled={!pendingCount || bulkSaving} title={pendingCount ? `${pendingCount} berkas menunggu` : "Tidak ada berkas menunggu review"} /></td>
                   <td><div className="person"><span className="avatar">{folder.name.slice(0, 2).toUpperCase()}</span><div className="person-copy"><strong>{folder.name}</strong><span>{folder.position} · {folder.department}</span></div></div></td>
                   <td>{typeLabels.join(", ")}</td>
                   <td>{folder.latestDate || "-"}</td>
