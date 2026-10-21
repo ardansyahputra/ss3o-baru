@@ -7,6 +7,12 @@ const ENV_PATH = path.join(ROOT, ".env");
 const ENV_EXAMPLE_PATH = path.join(ROOT, ".env.example");
 
 function main() {
+  // Di Netlify/Vercel/CI jangan bikin .env acak — pakai Environment Variables dari dashboard.
+  if (process.env.NETLIFY || process.env.VERCEL || process.env.CI) {
+    console.log("ℹ️  Lingkungan deploy terdeteksi, .env tidak dibuat (pakai Environment Variables dashboard).");
+    return;
+  }
+
   if (fs.existsSync(ENV_PATH)) {
     console.log("ℹ️  .env sudah ada, tidak diubah.");
     return;
