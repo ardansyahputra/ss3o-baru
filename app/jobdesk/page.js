@@ -5,7 +5,8 @@ import AppShell from "@/components/AppShell";
 import Icon from "@/components/Icons";
 import JobdeskTable from "@/components/JobdeskTable";
 
-export default async function JobdeskAdminPage({ searchParams }) {
+export default async function JobdeskAdminPage({ searchParams: rawSearchParams }) {
+  const searchParams = (await rawSearchParams) || {};
   const user = await requireAdmin();
   const data = await getDashboardData(user);
   const kpis = await db.all("kpis");

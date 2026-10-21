@@ -3,7 +3,8 @@ import { getUserJobdesks } from "@/lib/data";
 import AppShell from "@/components/AppShell";
 import MyJobdeskView from "@/components/MyJobdeskView";
 
-export default async function MyJobdeskPage({ searchParams }) {
+export default async function MyJobdeskPage({ searchParams: rawSearchParams }) {
+  const searchParams = (await rawSearchParams) || {};
   const user = await requireUser();
   const jobdesks = await getUserJobdesks(user);
   return <AppShell title="Jobdesk Saya" user={user}>

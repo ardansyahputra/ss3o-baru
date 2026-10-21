@@ -11,7 +11,8 @@ import StaffRoleForm from "@/components/StaffRoleForm";
 import StaffIdForm from "@/components/StaffIdForm";
 import StaffDepartmentForm from "@/components/StaffDepartmentForm";
 
-export default async function StaffDetailPage({ params }) {
+export default async function StaffDetailPage({ params: rawParams }) {
+  const params = await rawParams;
   const user = await requireAdmin();
   const staff = await db.find("users", (item) => item.id === params.id);
   if (!staff) notFound();

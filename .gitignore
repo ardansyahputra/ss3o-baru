@@ -21,3 +21,8 @@
 .DS_Store
 *.log
 npm-debug.log*
+
+# OpenNext / Cloudflare
+/.open-next
+/.wrangler
+.dev.vars

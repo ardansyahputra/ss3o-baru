@@ -4,7 +4,8 @@ import db from "@/lib/db";
 import AppShell from "@/components/AppShell";
 import Icon from "@/components/Icons";
 
-export default async function DepartmentDetailPage({ params }) {
+export default async function DepartmentDetailPage({ params: rawParams }) {
+  const params = await rawParams;
   const user = await requireAdmin();
   const department = await db.find("departments", (item) => item.id === params.id);
   if (!department) notFound();

@@ -4,7 +4,8 @@ import AppShell from "@/components/AppShell";
 import ReportForm from "@/components/ReportForm";
 import Icon from "@/components/Icons";
 
-export default async function ReportsPage({ searchParams }) {
+export default async function ReportsPage({ searchParams: rawSearchParams }) {
+  const searchParams = (await rawSearchParams) || {};
   const user = await requireUser();
   const jobdesks = await getUserJobdesks(user);
   return <AppShell title="Report Kerja" user={user}>

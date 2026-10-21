@@ -105,7 +105,8 @@ function StaffDashboard({ data, user }) {
   );
 }
 
-export default async function DashboardPage({ searchParams }) {
+export default async function DashboardPage({ searchParams: rawSearchParams }) {
+  const searchParams = (await rawSearchParams) || {};
   const user = await requireUser();
   const data = await getDashboardData(user);
   return <AppShell title="Dashboard" user={user} welcome={searchParams?.welcome === "1"}><PageHeader user={user} />{user.role === "ADMIN" ? <AdminDashboard data={data} user={user} /> : <StaffDashboard data={data} user={user} />}</AppShell>;

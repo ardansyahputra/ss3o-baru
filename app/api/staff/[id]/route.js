@@ -12,7 +12,8 @@ const ROLE_OPTIONS = ["ADMIN", "LEADER", "STAFF"];
 // dropdown — bukan ketik bebas lagi, supaya penulisannya selalu konsisten
 // (mis. tidak ada "Area manager" vs "AREA MANAGER" vs "area mngr" untuk
 // staff berbeda-beda).
-export async function PATCH(request, { params }) {
+export async function PATCH(request, { params: rawParams }) {
+  const params = await rawParams;
   const session = await getServerSession(authOptions);
   if (!session?.user || session.user.role !== "ADMIN") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

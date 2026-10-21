@@ -6,7 +6,8 @@ import AppShell from "@/components/AppShell";
 import Icon from "@/components/Icons";
 import JobdeskDetailForm from "@/components/JobdeskDetailForm";
 
-export default async function JobdeskDetailPage({ params }) {
+export default async function JobdeskDetailPage({ params: rawParams }) {
+  const params = await rawParams;
   const user = await requireAdmin();
   const jobdesk = await db.find("jobdesks", (item) => item.id === params.id);
   if (!jobdesk) notFound();

@@ -11,21 +11,26 @@
     "build": "next build",
     "start:prod": "next build && next start",
     "lint": "next lint",
-    "seed": "node --env-file-if-exists=.env scripts/seed.js"
+    "seed": "node --env-file-if-exists=.env scripts/seed.js",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-build": "opennextjs-cloudflare build"
   },
   "dependencies": {
     "@vercel/blob": "^0.27.1",
     "@vercel/postgres": "^0.10.0",
     "bcryptjs": "^2.4.3",
     "jspdf": "^2.5.2",
-    "next": "14.2.35",
+    "next": "~15.5.28",
     "next-auth": "^4.24.7",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.4",
+    "@opennextjs/cloudflare": "^1.20.13",
+    "wrangler": "^4.148.0"
   }
 }

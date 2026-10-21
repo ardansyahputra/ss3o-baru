@@ -6,7 +6,8 @@ import AppShell from "@/components/AppShell";
 import Icon from "@/components/Icons";
 import ReportReviewActions from "@/components/ReportReviewActions";
 
-export default async function ReportDetailPage({ params }) {
+export default async function ReportDetailPage({ params: rawParams }) {
+  const params = await rawParams;
   const user = await requireUser();
   const report = await db.find("daily_reports", (item) => item.id === params.id);
   if (!report || (user.role !== "ADMIN" && report.userId !== user.id)) notFound();
